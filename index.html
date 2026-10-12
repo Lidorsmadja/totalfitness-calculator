@@ -863,7 +863,7 @@ class Viz {
       for (let j = 1; j < D; j++){ const a = P(0,j,0), b2 = P(W,j,0); ctx.moveTo(a[0],a[1]); ctx.lineTo(b2[0],b2[1]); }
       ctx.stroke();
     }
-    ctx.lineWidth = 2; poly(ctx, [P(0,D,0),P(W,D,0),P(W,0,0)], null, COL.red);
+    ctx.lineWidth = 2; ctx.strokeStyle = COL.red; ctx.beginPath(); { const e1 = P(0,D,0), e2 = P(W,D,0), e3 = P(W,0,0); ctx.moveTo(e1[0],e1[1]); ctx.lineTo(e2[0],e2[1]); ctx.lineTo(e3[0],e3[1]); } ctx.stroke();
     ctx.font = "500 12px 'Google Sans', Arial, sans-serif"; ctx.fillStyle = "#a9adb3"; ctx.textAlign = "center"; ctx.direction = "ltr";
     const a = P(W/2, D, 0), b2 = P(W, D/2, 0);
     ctx.fillText(W.toFixed(1) + " מ׳", a[0] - 12, a[1] + 18);
