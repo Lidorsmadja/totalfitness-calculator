@@ -1,0 +1,1713 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0c0d">
+<meta name="description" content="בוחרים גודל וציוד, רואים את חדר הכושר נבנה מול העיניים, ומקבלים מחיר משוער והטבה של עד 30% מטוטאל פיטנס.">
+<meta property="og:title" content="מחשבון מתחם כושר · טוטאל פיטנס">
+<meta property="og:description" content="בנו את חדר הכושר שלכם ב-60 שניות: הדמיה חיה, מחיר משוער והטבה של עד 30%.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>html,body{margin:0}body{font-size:14px}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>מחשבון מתחם כושר</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap">
+<style>
+/* Layout: a black "showroom" hero where a gym builds itself on loop, then a white one-question-per-screen
+   wizard. The floor plan sits on a dark stage wherever it helps; one big button at the bottom. */
+:root{
+  --bg:#ffffff;
+  --soft:#f4f4f5;
+  --line:#e3e3e6;
+  --fg:#030505;          /* logo black */
+  --ink:#0b0c0d;
+  --muted:#5c6066;
+  --red:#eb3f25;         /* logo red */
+  --red-dark:#c8301a;
+  --red-soft:#fdeeeb;
+  --wa:#1a9e4b;
+  --wa-soft:#e8f6ee;
+  --warn:#9a5b00;
+  --warn-soft:#fff4df;
+  --on-dark:#f3f3f4;
+  --on-dark-muted:#a9adb3;
+  --f:"Google Sans","Rubik","Segoe UI",Arial,sans-serif;
+  --r:16px;
+  --logo-k:#030505;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);overflow-x:clip}
+body{color:var(--fg);font-family:var(--f);font-size:17px;line-height:1.5;-webkit-tap-highlight-color:transparent}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px;border-radius:8px}
+.num{font-variant-numeric:tabular-nums}
+bdi{unicode-bidi:isolate}
+.k{fill:var(--logo-k)}.r{fill:#eb3f25}
+.inv{--logo-k:#ffffff}
+
+#app{min-height:100%}
+.col{max-width:620px;margin:0 auto;padding-inline:16px}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;border-bottom:1px solid var(--line)}
+.lockup{display:flex;align-items:center;gap:10px;direction:ltr;text-decoration:none}
+.lockup .mono{height:38px;width:auto}
+.lockup .word{height:15px;width:auto}
+.call{display:flex;align-items:center;gap:6px;font-size:14px;color:inherit;text-decoration:none;font-weight:500}
+.call svg{width:18px;height:18px;fill:#25d366}
+
+/* ---------- hero ---------- */
+.hero{background:radial-gradient(120% 80% at 50% 10%,#24262a 0%,var(--ink) 62%);color:var(--on-dark);overflow:hidden;position:relative}
+.hero-in{max-width:1080px;margin:0 auto;padding:14px 16px 26px;display:grid;gap:18px}
+.hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hero-top .call{color:var(--on-dark)}
+.hero-copy{display:grid;gap:12px}
+.pill-new{justify-self:start;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;padding:6px 12px;border-radius:99px;background:rgba(235,63,37,.16);color:#ff8a73;border:1px solid rgba(235,63,37,.4)}
+.pill-new i{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.hero h1{margin:0;font-size:clamp(36px,9.5vw,64px);line-height:1.04;font-weight:700;letter-spacing:-.01em;text-wrap:balance}
+.hero h1 span{color:var(--red)}
+.hero p{margin:0;font-size:clamp(17px,4.4vw,20px);color:var(--on-dark-muted);max-width:34ch}
+.stage-hero{position:relative;height:clamp(250px,62vw,420px);border-radius:22px;background:radial-gradient(90% 90% at 50% 30%,#2c2f34 0%,#121315 75%);border:1px solid #2a2c30;overflow:hidden}
+.stage-hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.scene-chip{position:absolute;top:12px;inset-inline-start:12px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;background:rgba(11,12,13,.75);border:1px solid #33363b;color:var(--on-dark);padding:6px 12px;border-radius:99px;backdrop-filter:blur(6px)}
+.scene-chip b{color:var(--red)}
+.pop{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:14px;font-weight:700;color:#fff;background:var(--red);padding:5px 12px;border-radius:99px;white-space:nowrap;animation:popUp 1s ease forwards;pointer-events:none}
+@keyframes popUp{0%{opacity:0;transform:translate(-50%,10px) scale(.8)}20%{opacity:1;transform:translate(-50%,0) scale(1)}80%{opacity:1}100%{opacity:0;transform:translate(-50%,-14px)}}
+.sticker{position:absolute;top:10px;inset-inline-end:10px;width:92px;height:92px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;text-align:center;line-height:1.05;font-weight:700;box-shadow:0 8px 24px rgba(235,63,37,.45);transform:rotate(-12deg);animation:wobble 3s ease-in-out infinite}
+.sticker small{display:block;font-size:12px;font-weight:500}
+.sticker b{display:block;font-size:26px}
+@keyframes wobble{50%{transform:rotate(-4deg) scale(1.05)}}
+.cta-big{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:68px;border:0;border-radius:18px;background:var(--red);color:#fff;font-size:22px;font-weight:700;box-shadow:0 0 0 0 rgba(235,63,37,.6);animation:glow 2s infinite;transition:transform .12s}
+.cta-big:active{transform:scale(.98)}
+.cta-big .arr{display:inline-block;animation:nudge 1.2s ease-in-out infinite}
+@keyframes glow{0%{box-shadow:0 0 0 0 rgba(235,63,37,.55)}70%{box-shadow:0 0 0 16px rgba(235,63,37,0)}100%{box-shadow:0 0 0 0 rgba(235,63,37,0)}}
+@keyframes nudge{50%{transform:translateX(-6px)}}
+.cta-note{text-align:center;font-size:14px;color:var(--on-dark-muted);margin-top:-6px}
+.hero-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.hero-steps div{display:grid;justify-items:center;gap:4px;text-align:center;padding:12px 6px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid #2a2c30;font-size:14px;line-height:1.3}
+.hero-steps b{width:30px;height:30px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-size:15px}
+.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;font-size:14px;color:var(--on-dark-muted)}
+.trust span::before{content:"✓ ";color:#4ad07f;font-weight:700}
+
+/* progress */
+.progress{display:grid;gap:8px;padding-block:16px 4px}
+.progress-top{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.progress-top b{color:var(--fg);font-weight:700}
+.bar{height:8px;border-radius:99px;background:var(--soft);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--red);border-radius:99px;transition:width .5s cubic-bezier(.3,1.4,.5,1)}
+
+/* screens */
+.screen{display:grid;gap:18px;padding-block:14px calc(130px + env(safe-area-inset-bottom,0px));animation:in .4s ease}
+@keyframes in{from{transform:translateY(14px)}to{transform:none}}
+.q{margin:0;font-size:clamp(26px,6.4vw,34px);line-height:1.2;font-weight:700;text-wrap:balance}
+.help{margin:-8px 0 0;color:var(--muted);font-size:16px}
+
+/* tiles */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{position:relative;display:grid;justify-items:center;gap:8px;padding:20px 10px 16px;border-radius:var(--r);border:2px solid var(--line);background:#fff;text-align:center;transition:border-color .15s,background .15s,transform .15s,box-shadow .15s}
+.tile:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.07)}
+.tile:active{transform:scale(.96)}
+.tile svg{width:58px;height:58px;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.tile:hover svg{transform:scale(1.1) rotate(-4deg)}
+.tile b{font-size:18px;font-weight:700;line-height:1.2}
+.tile small{font-size:14px;color:var(--muted);line-height:1.3}
+.tile[aria-pressed="true"]{border-color:var(--red);background:var(--red-soft)}
+.tile[aria-pressed="true"]::after{content:"✓";position:absolute;top:8px;inset-inline-end:8px;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:700;animation:pop .35s cubic-bezier(.3,1.8,.5,1)}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+
+/* size */
+.size{display:grid;gap:14px;padding:18px;border-radius:var(--r);background:var(--soft)}
+.size-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.big-btn{width:60px;height:60px;flex:none;border-radius:50%;border:2px solid var(--line);background:#fff;font-size:30px;font-weight:500;display:grid;place-items:center;line-height:1}
+.big-btn:active{background:var(--red);border-color:var(--red);color:#fff}
+.size-val{display:flex;align-items:baseline;justify-content:center;gap:6px;direction:ltr}
+.size-val input{width:4ch;border:0;background:none;font-size:64px;font-weight:700;text-align:center;padding:0;line-height:1;-moz-appearance:textfield}
+.size-val input:focus{outline:none;color:var(--red)}
+.size-val input::-webkit-outer-spin-button,.size-val input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.size-val span{font-size:22px;font-weight:500;color:var(--muted)}
+.slider{-webkit-appearance:none;appearance:none;width:100%;height:16px;border-radius:99px;background:linear-gradient(to left,var(--red) var(--p,30%),#d9d9dd var(--p,30%));outline-offset:6px}
+.slider::-webkit-slider-thumb{-webkit-appearance:none;width:42px;height:42px;border-radius:50%;background:#fff;border:6px solid var(--red);box-shadow:0 4px 12px rgba(235,63,37,.4);cursor:grab}
+.slider::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:#fff;border:6px solid var(--red);box-shadow:0 4px 12px rgba(235,63,37,.4);cursor:grab}
+.slider-ends{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:-6px}
+.like{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:#fff;border:1px solid var(--line)}
+.like .emo{font-size:30px;line-height:1;transition:transform .3s}
+.like .emo.bounce{animation:bnc .4s}
+@keyframes bnc{40%{transform:scale(1.35) rotate(-8deg)}}
+.like b{display:block;font-size:17px}
+.like small{display:block;font-size:15px;color:var(--muted)}
+.like small strong{color:var(--red-dark)}
+
+/* floor-plan stage */
+.viz-box{position:relative;border-radius:var(--r);background:radial-gradient(90% 100% at 50% 20%,#2c2f34 0%,#111214 75%);overflow:hidden}
+.viz-box canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.viz-slot{min-width:0}
+.viz-slot.s2 .viz-box{height:230px}
+.viz-slot.s3{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:6px;margin-block:-6px}
+.viz-slot.s3 .viz-box{height:200px}
+.viz-slot.s5 .viz-box{height:240px}
+.hud{position:absolute;inset-inline:10px;bottom:10px;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;pointer-events:none;color:var(--on-dark)}
+.hud .n{display:grid;line-height:1}
+.hud .n b{font-size:28px;font-weight:700}
+.hud .n small{font-size:12px;color:var(--on-dark-muted);margin-top:3px}
+.occ{flex:0 1 150px;display:grid;gap:5px}
+.occ-top{display:flex;justify-content:space-between;font-size:12px;color:var(--on-dark-muted)}
+.occ-top b{color:#fff}
+.occ-bar{height:7px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden}
+.occ-bar i{display:block;height:100%;width:0;border-radius:99px;background:#4ad07f;transition:width .45s cubic-bezier(.3,1.3,.5,1),background .3s}
+.viz-warn{position:absolute;top:10px;inset-inline:10px;font-size:14px;font-weight:500;color:var(--warn);background:var(--warn-soft);border-radius:10px;padding:6px 10px;width:fit-content}
+
+/* equipment */
+.reco{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--r);background:var(--fg);color:#fff}
+.reco .spark{font-size:28px;animation:bnc 1.8s infinite}
+.reco b{display:block;font-size:17px}
+.reco small{display:block;font-size:14px;color:var(--on-dark-muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:0 22px;border-radius:14px;border:0;background:var(--red);color:#fff;font-size:18px;font-weight:700;text-decoration:none;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.98)}
+.btn:hover{background:var(--red-dark)}
+.btn.line{background:#fff;color:var(--fg);border:2px solid var(--line)}
+.btn.line:hover{background:var(--soft)}
+.btn.wa{background:var(--wa)}
+.btn.wa:hover{background:#158a41}
+.btn svg{width:24px;height:24px;fill:currentColor}
+.btn.full{width:100%}
+.btn:disabled{background:#c9c9ce;cursor:not-allowed}
+.fitnote{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-radius:var(--r);background:var(--wa-soft);border:2px solid var(--wa);font-size:16px;transition:background .3s,border-color .3s}
+.fitnote .ic{font-size:24px;line-height:1.1}
+.fitnote b{display:block;font-size:17px}
+.fitnote span span{color:#2c4a37}
+.fitnote.over{background:var(--warn-soft);border-color:#e0a030}
+.fitnote.over span span{color:#6b4500}
+.fitnote.bump{animation:flash .45s}
+.price .fit{margin-top:6px;font-size:14px;color:#ffd9a8}
+.list-title{margin:6px 0 -6px;font-size:15px;font-weight:700;color:var(--muted)}
+.items{display:grid;gap:10px}
+.item{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;padding:12px;border-radius:var(--r);border:2px solid var(--line);background:#fff;transition:border-color .15s,background .15s}
+.item.has{border-color:var(--red);background:#fffafa}
+.item.flash{animation:flash .45s}
+@keyframes flash{30%{transform:scale(1.02);box-shadow:0 0 0 6px rgba(235,63,37,.18)}}
+.item canvas{width:64px;height:64px;border-radius:12px;background:var(--soft)}
+.item .txt{min-width:0}
+.item .txt b{display:block;font-size:17px;line-height:1.25}
+.item .txt small{display:block;font-size:14px;color:var(--muted);line-height:1.35}
+.item .ctrl{grid-column:1 / -1}
+.add{min-height:48px;padding:0 18px;border-radius:12px;border:2px solid var(--red);background:#fff;color:var(--red-dark);font-weight:700;font-size:16px;width:100%}
+.add:active{background:var(--red);color:#fff}
+.qty{display:flex;align-items:center;gap:6px;justify-content:space-between;background:var(--soft);border-radius:12px;padding:4px}
+.qty button{width:52px;height:44px;border-radius:10px;border:0;background:#fff;font-size:26px;font-weight:500;display:grid;place-items:center;line-height:1}
+.qty button.plus{background:var(--red);color:#fff}
+.qty output{font-size:18px;font-weight:700}
+.more{min-height:52px;border-radius:14px;border:2px dashed #c9c9ce;background:none;font-size:16px;font-weight:500;color:var(--muted)}
+.switch-row{display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--r);border:2px solid var(--line);cursor:pointer}
+.switch-row.on{border-color:var(--red);background:#fffafa}
+.switch-row .txt{flex:1;min-width:0}
+.switch-row b{display:block;font-size:17px}
+.switch-row small{font-size:14px;color:var(--muted)}
+.sw{position:relative;width:56px;height:32px;flex:none}
+.sw input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.sw i{position:absolute;inset:0;border-radius:99px;background:#c9c9ce;transition:background .2s}
+.sw i::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s}
+.sw input:checked+i{background:var(--red)}
+.sw input:checked+i::after{transform:translateX(-24px)}
+.sw input:focus-visible+i{outline:3px solid var(--red);outline-offset:2px}
+.float{position:fixed;z-index:80;pointer-events:none;font-weight:700;font-size:20px;color:var(--red);animation:floatUp .8s ease-out forwards}
+@keyframes floatUp{to{transform:translateY(-46px);opacity:0}}
+
+/* details */
+.locked{position:relative;display:grid;gap:4px;padding:18px;border-radius:var(--r);background:var(--fg);color:#fff;text-align:center;overflow:hidden}
+.locked small{color:var(--on-dark-muted);font-size:15px}
+.locked .scr{font-size:46px;font-weight:700;filter:blur(7px);user-select:none;letter-spacing:.02em}
+.locked .lk{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:4px;font-weight:700;font-size:17px}
+.locked .lk span{font-size:30px}
+.field{display:grid;gap:6px}
+.field label{font-size:17px;font-weight:700}
+.field input{height:60px;border-radius:14px;border:2px solid var(--line);background:#fff;padding:0 16px;font-size:20px}
+.field input:focus{outline:none;border-color:var(--red)}
+.field input.bad{border-color:var(--red);background:var(--red-soft)}
+.field input.good{border-color:var(--wa)}
+.err{font-size:15px;color:var(--red-dark);font-weight:500}
+.lock{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--muted);margin:0}
+
+/* result */
+.calc{display:grid;gap:14px;padding:22px 18px;border-radius:var(--r);background:var(--soft)}
+.calc div{display:flex;align-items:center;gap:12px;font-size:17px;color:#9a9da3;transition:color .3s}
+.calc div.on,.calc div.done{color:var(--fg)}
+.calc i{width:24px;height:24px;border-radius:50%;border:3px solid #d4d4d8;flex:none;position:relative}
+.calc div.on i{border-color:var(--red);border-top-color:transparent;animation:spin .7s linear infinite}
+.calc div.done i{border-color:var(--wa);background:var(--wa)}
+.calc div.done i::after{content:"";position:absolute;left:6px;top:2px;width:6px;height:11px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.price{display:grid;gap:2px;padding:22px 18px;border-radius:var(--r);background:var(--fg);color:#fff;text-align:center}
+.price small{font-size:15px;color:#c9cbcf}
+.price .amount{font-size:clamp(52px,14vw,72px);font-weight:700;line-height:1.05}
+.price .range{font-size:15px;color:#c9cbcf}
+.offer-id{display:flex;justify-content:center;gap:8px;font-size:16px;color:var(--muted)}
+.offer-id b{color:var(--fg);letter-spacing:.04em}
+.rows{display:grid;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.rows div{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;border-top:1px solid var(--line);font-size:16px}
+.rows div:first-child{border-top:0}
+.rows div.tot{background:var(--soft);font-weight:700}
+.rows span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.gift{display:grid;gap:10px;padding:18px;border-radius:var(--r);background:var(--wa-soft);border:2px solid var(--wa)}
+.gift b{font-size:19px}
+.gift p{margin:0;font-size:16px;color:#2c4a37}
+.note{margin:0;font-size:13.5px;color:var(--muted)}
+details summary{cursor:pointer;font-weight:700;font-size:16px;padding:10px 0}
+
+/* bottom bar */
+.dock{position:fixed;inset-inline:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(0,0,0,.06);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+.dock-in{max-width:620px;margin:0 auto;display:grid;gap:6px}
+.dock-info{text-align:center;font-size:15px;color:var(--muted)}
+.dock-info b{color:var(--fg)}
+.dock-btns{display:flex;gap:10px}
+.dock-btns .btn{flex:1}
+.dock-btns .back{flex:0 0 auto;min-width:96px}
+.shake{animation:shake .4s}
+@keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+
+/* popup + scratch card */
+.modal{position:fixed;inset:0;z-index:50;display:grid;align-items:end;justify-items:center;background:rgba(3,5,5,.6)}
+.sheet{position:relative;width:100%;max-width:500px;max-height:94vh;overflow:auto;background:#fff;border-radius:24px 24px 0 0;padding:26px 20px calc(20px + env(safe-area-inset-bottom,0px));display:grid;gap:14px;text-align:center;animation:up .45s cubic-bezier(.2,1.1,.3,1)}
+@keyframes up{from{transform:translateY(100%)}to{transform:none}}
+.sheet .mono{height:60px;width:auto;justify-self:center}
+.sheet h2{margin:0;font-size:clamp(26px,7vw,32px);line-height:1.2;font-weight:700;text-wrap:balance}
+.sheet h2 span{color:var(--red)}
+.scratch{position:relative;height:170px;border-radius:18px;overflow:hidden;border:2px dashed var(--red);background:var(--red-soft)}
+.scratch .under{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:2px;padding:10px}
+.scratch .under b{font-size:46px;line-height:1;color:var(--red)}
+.scratch .under span{font-size:18px;font-weight:700}
+.scratch canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab;transition:opacity .5s}
+.scratch canvas.gone{opacity:0;pointer-events:none}
+.hand{position:absolute;bottom:18px;left:50%;font-size:34px;pointer-events:none;animation:swipe 1.6s ease-in-out infinite}
+@keyframes swipe{0%{transform:translate(-120%,0) rotate(-10deg)}50%{transform:translate(20%,-10px) rotate(10deg)}100%{transform:translate(-120%,0) rotate(-10deg)}}
+.plus{display:flex;justify-content:center;align-items:center;gap:10px;font-size:19px;font-weight:700}
+.plus i{width:32px;height:32px;border-radius:50%;background:var(--red);color:#fff;font-style:normal;display:grid;place-items:center;font-size:22px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.compare div{padding:12px 8px;border-radius:14px;background:var(--soft);display:grid;gap:2px}
+.compare small{font-size:14px;color:var(--muted)}
+.compare s{font-size:24px;font-weight:700;color:var(--muted)}
+.compare b{font-size:24px;color:var(--wa)}
+.compare .best{background:var(--wa-soft);border:2px solid var(--wa)}
+.sheet .btn{min-height:64px;font-size:22px}
+.sheet .btn.popin{animation:pop .45s cubic-bezier(.3,1.8,.5,1)}
+.x{position:absolute;top:12px;inset-inline-end:12px;width:40px;height:40px;border-radius:50%;border:0;background:var(--soft);font-size:18px;z-index:2}
+.later{background:none;border:0;color:var(--muted);font-size:16px;text-decoration:underline;text-underline-offset:3px;padding:6px}
+.msg{padding:14px;border-radius:12px;background:var(--soft);font-size:16px;text-align:start;user-select:all}
+#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60}
+.toast{position:fixed;left:0;right:0;margin:0 auto;bottom:calc(140px + env(safe-area-inset-bottom,0px));width:fit-content;max-width:calc(100% - 32px);z-index:70;padding:12px 18px;border-radius:12px;background:var(--fg);color:#fff;font-size:16px;font-weight:500}
+
+footer{padding-block:20px 150px;color:var(--muted);font-size:13px;display:grid;gap:4px;text-align:center}
+footer a{color:var(--muted)}
+#customer.home footer{padding-bottom:30px}
+
+/* ---------- admin ---------- */
+.adm{max-width:1180px;margin:0 auto;padding:16px 16px 40px;display:grid;gap:16px}
+.tabs{display:flex;gap:6px;background:var(--soft);padding:5px;border-radius:14px;width:fit-content;max-width:100%}
+.tabs button{border:0;background:none;padding:10px 18px;border-radius:10px;font-weight:700;font-size:15px;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:#fff;color:var(--fg);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.prices{display:grid;gap:14px}
+.price-note{padding:12px 14px;border-radius:12px;background:var(--warn-soft);color:var(--warn);font-size:15px}
+.price-note.ok{background:var(--wa-soft);color:var(--wa)}
+.plist{display:grid;gap:8px}
+.prow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff}
+.prow.changed{border-color:var(--red);background:#fffafa}
+.prow b{display:block;font-size:16px}
+.prow small{display:block;font-size:13px;color:var(--muted)}
+.pin{display:flex;align-items:center;gap:6px;direction:ltr}
+.pin input{width:128px;height:46px;border-radius:10px;border:2px solid var(--line);padding:0 10px;font-size:18px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.pin input:focus{outline:none;border-color:var(--red)}
+.pin span{font-weight:700;color:var(--muted)}
+.examples{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.example{padding:12px 14px;border-radius:12px;background:var(--fg);color:#fff}
+.example small{color:#c9cbcf;font-size:13px;display:block}
+.example b{font-size:24px}
+.adm-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.adm-head h1{margin:0;font-size:30px}
+.mode{font-size:13px;padding:5px 10px;border-radius:99px;background:var(--soft);color:var(--muted)}
+.mode.db{background:var(--wa-soft);color:var(--wa)}
+.search input{width:100%;height:60px;border-radius:14px;border:2px solid var(--line);padding:0 16px;font-size:20px}
+.search input:focus{outline:none;border-color:var(--red)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat{padding:12px 14px;border-radius:14px;background:var(--soft);display:grid}
+.stat small{font-size:13px;color:var(--muted)}
+.stat b{font-size:28px;line-height:1.2}
+.adm-grid{display:grid;gap:16px}
+.leads{display:grid;gap:8px;align-content:start}
+.lead{display:grid;grid-template-columns:auto 1fr auto;gap:2px 12px;align-items:center;width:100%;text-align:start;padding:12px;border-radius:12px;border:2px solid var(--line);background:#fff}
+.lead.sel{border-color:var(--red)}
+.lead .id{font-weight:700;color:var(--red-dark);letter-spacing:.03em}
+.lead .nm{font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lead .sub{grid-column:1 / -1;font-size:14px;color:var(--muted)}
+.pill{font-size:12.5px;padding:3px 9px;border-radius:99px;font-weight:700;white-space:nowrap}
+.pill.details{background:var(--warn-soft);color:var(--warn)}
+.pill.quote,.pill.offer{background:#e8f0fa;color:#2a5a8f}
+.pill.whatsapp{background:var(--wa-soft);color:var(--wa)}
+.detail{display:grid;gap:12px;align-content:start;min-width:0}
+.card{padding:16px;border-radius:var(--r);border:1px solid var(--line);display:grid;gap:10px;min-width:0}
+.card h3{margin:0;font-size:14px;color:var(--muted);font-weight:700}
+.dhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.dhead h2{margin:0;font-size:28px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:16px;margin:0}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.recs{display:grid;gap:8px}
+.rec{padding:10px 12px;border-radius:12px;background:var(--soft);font-size:15px;border-inline-start:4px solid var(--line)}
+.rec.hot{border-inline-start-color:var(--red)}
+.rec.up{border-inline-start-color:var(--wa)}
+.rec b{display:block}
+.rec span{color:var(--muted)}
+.adm-viz{height:230px}
+.tl div{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.tl time{color:var(--muted)}
+.stage{display:flex;flex-wrap:wrap;gap:6px}
+.stage button{padding:8px 12px;border-radius:99px;border:2px solid var(--line);background:#fff;font-size:14px}
+.stage button[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:#fff}
+textarea{width:100%;min-height:90px;border-radius:12px;border:2px solid var(--line);padding:10px 12px;resize:vertical}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.empty{padding:28px 16px;text-align:center;color:var(--muted);border:2px dashed var(--line);border-radius:var(--r)}
+
+@media (min-width:560px){ .tiles{grid-template-columns:repeat(4,1fr)} .stats{grid-template-columns:repeat(4,1fr)} }
+@media (min-width:700px){ .modal{align-items:center;padding:16px} .sheet{border-radius:24px} .viz-slot.s5 .viz-box{height:300px} }
+@media (min-width:900px){
+  .hero-in{grid-template-columns:1fr 1.15fr;grid-template-areas:"top top" "copy stage" "cta stage" "steps steps" "trust trust";column-gap:40px;padding-block:18px 36px;align-items:center}
+  .hero-top{grid-area:top}.hero-copy{grid-area:copy}.stage-hero{grid-area:stage}.hero-cta{grid-area:cta}.hero-steps{grid-area:steps}.trust{grid-area:trust}
+  .sticker{width:110px;height:110px}.sticker b{font-size:32px}
+}
+@media (min-width:960px){ .adm-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);align-items:start} .leads{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto} }
+@media (prefers-reduced-motion:reduce){ *,*::before,*::after{animation:none!important;transition:none!important} }
+</style>
+</head>
+<body>
+<!-- Total Fitness logo, extracted from the official vector file -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="tfMono"><path class="k" transform="matrix(1,0,0,-1,746.2461,152.53498)" d="M0 0-38.961-71.175H-205.295V-98.896H-53.946L-92.532-170.82H-205.295V-380.224L-275.096-508.219C-278.26-512.391-276.474-507.869-276.474-507.59V-71.175H-289.96V-509.463C-291.84-507.769-293.338-504.729-294.585-502.475-317.141-461.689-338.312-420.116-361.139-379.475V-71.175L-451.049-71.932-437.562-98.896H-382.118V-170.82H-473.152L-566.434 0Z"/><path class="r" transform="matrix(1,0,0,-1,309.5633,145.04291)" d="M0 0C42.959 32.404 96.379 51.643 154.212 51.643 212.046 51.643 265.465 32.404 308.425 0H349.932C296.97 50.633 227.73 78.442 154.212 78.442 80.695 78.442 11.455 50.633-41.507 0Z"/><path class="r" transform="matrix(1,0,0,-1,430.0575,631.2776)" d="M0 0-14.058 28.167C-14.058 28.167-14.679 28.636-15.811 29.492-133.68 52.637-222.882 156.728-222.882 281.278-222.882 315.063-216.305 347.338-204.386 376.908L-206.866 381.736-219.998 407.849C-239.41 369.031-249.681 325.945-249.681 281.278-249.681 205.578-220.203 134.41-166.676 80.883-121.116 35.323-62.771 7.201 .266-.165Z"/><path class="r" transform="matrix(1,0,0,-1,717.1058,222.64112)" d="M0 0-6.449-9.31-25.524-9.352C-7.139-44.701 3.271-84.835 3.271-127.359 3.271-252.85-87.284-357.576-206.478-379.658L-221.118-408.939C-157.606-401.798-98.794-373.612-52.936-327.753 .591-274.226 30.069-203.058 30.069-127.359 30.069-82.391 19.666-39.022 0 0"/></g>
+    <g id="tfWord"><path class="r" transform="matrix(1,0,0,-1,754.4879,738.4176)" d="M0 0H-13.487C-13.885 0-12.496 3.946-19.07 4.531-25.163 5.074-42.655 5.372-48.283 4.452-53.74 3.559-53.975-2.472-48.915-3.586-36.018-6.423-16.113 1.193-5.219-9.339 5.758-19.951-1.319-38.423-16.079-39.738-23.282-40.381-46.023-40.71-52.491-39.377-59.873-37.854-66.829-29.379-65.934-21.727H-52.448C-52.049-21.727-53.438-25.673-46.864-26.258-40.771-26.801-23.279-27.099-17.651-26.179-12.195-25.287-11.959-19.255-17.019-18.142-29.801-15.329-49.914-22.829-60.715-12.388-70.555-2.877-66.278 12.93-53.727 17.387-47.68 19.534-18.871 19.576-12.745 17.599-5.566 15.282 .766 7.764 0 0"/><path class="r" transform="matrix(1,0,0,-1,560.8065,719.6874)" d="M0 0 37.088-41.207V0H50.574V-58.438H34.466L-1.873-17.981V-58.438H-16.109V0Z"/><path class="k" transform="matrix(1,0,0,-1,150.3777,734.083)" d="M0 0C-2.524-.58-3.265-2.303-3.546-4.695-4.084-9.278-4.08-21.113-3.546-25.701-3.161-29.017-1.965-30.189 1.324-30.571 7.732-31.315 22.541-31.187 29.096-30.593 30.977-30.422 32.657-30.308 33.953-28.706 36.023-26.148 35.822-10.856 35.458-6.928 35.083-2.886 34.339-.343 29.826 .177 25.151 .717 3.979 .914 0 0M1.559 14.175C9.721 15.057 29.595 15.288 36.918 12.513 41.14 10.913 45.492 6.802 47.337 2.703 49.855-2.891 49.792-27.403 47.333-33.095 45.397-37.578 39.119-43.238 34.259-43.997 27.72-45.018 5.218-44.819-1.661-44.045-10.766-43.021-16.976-34.259-17.755-25.675-19.3-8.654-19.592 11.888 1.559 14.175"/><path class="k" transform="matrix(1,0,0,-1,318.4239,778.1258)" d="M0 0H-15.734L-37.845 40.462-60.689 0H-76.424L-43.106 58.496C-40.288 57.927-33.764 59.427-31.832 57.7Z"/><path class="k" transform="matrix(1,0,0,-1,257.7346,719.6874)" d="M0 0V-14.235H-20.979V-58.438H-35.215V-15.359C-35.215-15.131-34.266-14.784-34.466-14.235H-56.194V0Z"/><path class="k" transform="matrix(1,0,0,-1,131.8605,719.6874)" d="M0 0V-14.235H-20.979V-58.438H-34.466V-14.235H-55.445V0Z"/><path class="r" transform="matrix(1,0,0,-1,540.9514,719.6874)" d="M0 0V-14.235H-20.979V-58.438H-34.466V-14.235H-55.445V0Z"/><path class="k" transform="matrix(1,0,0,-1,334.9074,719.6874)" d="M0 0V-44.953H32.967V-58.438H-14.236V0Z"/><path class="r" transform="matrix(1,0,0,-1,452.5398,742.1637)" d="M0 0V-14.235H-42.707C-42.907-14.784-41.958-15.131-41.958-15.359V-35.962H-56.194V0Z"/><path class="r" transform="matrix(1,0,0,-1,0,830)" d="M463.029 96.078H396.346V110.313H463.029Z"/><path class="r" transform="matrix(1,0,0,-1,0,830)" d="M684.808 96.078H618.125V110.313H684.808Z"/><path class="r" transform="matrix(1,0,0,-1,0,830)" d="M684.808 51.874H618.125V65.36H684.808Z"/><path class="r" transform="matrix(1,0,0,-1,0,830)" d="M679.563 73.601H623.369V87.836H679.563Z"/><path class="r" transform="matrix(1,0,0,-1,825.6667,732.424)" d="M0 0V-5.994C-3.459-5.357-10.082-6.854-13.025-6.041-13.825-5.82-12.908-2.011-19.07-1.462-25.293-.908-42.474-.631-48.28-1.546-53.689-2.398-53.689-8.841-48.28-9.693-31.761-12.294-9.237-2.622 0-22.476V-33.714C-2.604-38.379-7.762-44.411-13.281-45.532-18.901-46.674-44.272-46.414-50.577-45.704-58.498-44.812-66.666-35.873-65.934-27.721H-52.448C-52.12-27.721-52.627-31.484-48.28-32.169-42.488-33.082-25.277-32.808-19.07-32.252-12.691-31.68-11.037-26.744-16.877-23.994-28.539-22.569-48.337-27.305-58.064-20.225-73.384-9.074-65.059 10.993-47.57 12.729-40.379 13.444-19.14 13.525-12.758 11.592-6.418 9.672-3.278 5.369 0 0"/><path class="r" transform="matrix(1,0,0,-1,0,830)" d="M480.262 51.874H466.775V110.312H480.262Z"/></g>
+  </defs>
+</svg>
+
+<div id="app" dir="rtl" lang="he">
+  <!-- ================= CUSTOMER ================= -->
+  <main id="customer" class="home">
+
+    <!-- 0 · hero / welcome -->
+    <section class="hero" data-step="0">
+      <div class="hero-in">
+        <div class="hero-top">
+          <div class="lockup inv" aria-label="Total Fitness">
+            <svg class="mono" viewBox="172 58 584 616" aria-hidden="true"><use href="#tfMono"/></svg>
+            <svg class="word" viewBox="70 713 762 72" aria-hidden="true"><use href="#tfWord"/></svg>
+          </div>
+          <a class="call" href="https://wa.me/972507112110" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.2.5.2.5.4.1.1.1.7-.1 1.2Z"/></svg>
+            <bdi dir="ltr">050-711-2110</bdi>
+          </a>
+        </div>
+        <div class="hero-copy">
+          <span class="pill-new"><i></i>מחשבון מתחם כושר</span>
+          <h1>בנו את חדר הכושר שלכם <span>ב-60 שניות</span></h1>
+          <p>בוחרים גודל וציוד, רואים את המקום נבנה מול העיניים, ומקבלים מחיר והטבה מיוחדת.</p>
+        </div>
+        <div class="stage-hero" id="heroStage">
+          <canvas id="heroViz" aria-label="הדמיה של חדר כושר נבנה"></canvas>
+          <span class="scene-chip" id="sceneChip">חדר כושר ביתי · <b>20 מ״ר</b></span>
+          <div class="sticker" aria-hidden="true"><div><small>עד</small><b>30%</b><small>הנחה</small></div></div>
+        </div>
+        <div class="hero-cta" style="display:grid;gap:12px">
+          <button class="cta-big" id="startBtn" type="button">בואו נבנה את שלכם <span class="arr">←</span></button>
+          <div class="cta-note">בחינם · בלי התחייבות · פחות מדקה</div>
+        </div>
+        <div class="hero-steps">
+          <div><b>1</b>בוחרים מקום וגודל</div>
+          <div><b>2</b>בוחרים ציוד</div>
+          <div><b>3</b>מקבלים מחיר והטבה</div>
+        </div>
+        <div class="trust"><span>112 מכונים הוקמו</span><span>היבואן הגדול בישראל</span><span>ייעוץ ותכנון חינם</span></div>
+      </div>
+    </section>
+
+    <header class="col top" id="appHeader" hidden>
+      <a class="lockup" href="#start" aria-label="Total Fitness">
+        <svg class="mono" viewBox="172 58 584 616" aria-hidden="true"><use href="#tfMono"/></svg>
+        <svg class="word" viewBox="70 713 762 72" aria-hidden="true"><use href="#tfWord"/></svg>
+      </a>
+      <a class="call" href="https://wa.me/972507112110" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.2.5.2.5.4.1.1.1.7-.1 1.2Z"/></svg>
+        <bdi dir="ltr">050-711-2110</bdi>
+      </a>
+    </header>
+
+    <div class="col">
+      <div class="progress" id="progress" hidden>
+        <div class="progress-top"><span id="progLabel">שלב 1 מתוך 4</span><b id="progName">המקום</b></div>
+        <div class="bar"><i id="progBar"></i></div>
+      </div>
+
+      <!-- 1 · space -->
+      <section class="screen" data-step="1" hidden>
+        <h2 class="q">איזה מקום אתם מקימים?</h2>
+        <p class="help">לחצו על אחת האפשרויות.</p>
+        <div class="tiles" id="spaceTiles"></div>
+      </section>
+
+      <!-- 2 · size -->
+      <section class="screen" data-step="2" hidden>
+        <h2 class="q">כמה מטר רבוע יש במקום?</h2>
+        <p class="help">גררו את העיגול האדום, או לחצו על + ו־−.</p>
+        <div class="size">
+          <div class="size-row">
+            <button class="big-btn" id="areaPlus" type="button" aria-label="להגדיל">+</button>
+            <label class="size-val" for="area"><input id="area" type="number" inputmode="numeric" min="8" max="3000" value="50" aria-label="מטר רבוע"><span>מ״ר</span></label>
+            <button class="big-btn" id="areaMinus" type="button" aria-label="להקטין">−</button>
+          </div>
+          <input class="slider" id="areaRange" type="range" min="0" max="1000" step="1" aria-label="גודל המקום">
+          <div class="slider-ends"><span>10 מ״ר</span><span>600 מ״ר</span></div>
+          <div class="like"><span class="emo" id="likeEmo">🏠</span><span><b id="likeText">בערך כמו דירת 3 חדרים</b><small id="fitText">נכנסים כאן כ-8 מכשירים</small></span></div>
+        </div>
+        <div class="viz-slot s2" data-slot="2"></div>
+      </section>
+
+      <!-- 3 · equipment -->
+      <section class="screen" data-step="3" hidden>
+        <h2 class="q">מה יהיה בחדר הכושר?</h2>
+        <div class="viz-slot s3" data-slot="3"></div>
+        <div class="reco" id="reco">
+          <span class="spark" aria-hidden="true">✨</span>
+          <span><b id="recoTitle">בחרנו בשבילכם ציוד מומלץ</b><small>אפשר פשוט להמשיך, או להוסיף ולהוריד פריטים.</small></span>
+        </div>
+        <div class="fitnote" id="fitNote"></div>
+        <div class="list-title">מומלץ למקום שלכם</div>
+        <div class="items" id="itemsMain"></div>
+        <button class="more" id="moreBtn" type="button">+ הצגת עוד ציוד</button>
+        <div class="items" id="itemsMore" hidden></div>
+        <label class="switch-row" id="floorRow" for="floor">
+          <span class="txt"><b>ריצוף גומי לכל החדר</b><small id="floorSub">שומר על הרצפה ובולם רעש</small></span>
+          <span class="sw"><input type="checkbox" id="floor" checked><i></i></span>
+        </label>
+      </section>
+
+      <!-- 4 · details -->
+      <section class="screen" data-step="4" hidden>
+        <h2 class="q">המחיר שלכם מוכן!</h2>
+        <div class="locked">
+          <small>המחיר המשוער למקום שלכם</small>
+          <div class="scr num" id="scramble">₪00,000</div>
+          <div class="lk"><span>🔒</span>השאירו שם וטלפון כדי לראות</div>
+        </div>
+        <form id="leadForm" novalidate style="display:grid;gap:16px">
+          <div class="field">
+            <label for="fullName">שם מלא</label>
+            <input id="fullName" autocomplete="name" placeholder="לדוגמה: ישראל ישראלי">
+            <div class="err" id="nameErr"></div>
+          </div>
+          <div class="field">
+            <label for="phone">מספר טלפון</label>
+            <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="050-0000000" dir="ltr" style="text-align:right">
+            <div class="err" id="phoneErr"></div>
+          </div>
+          <button type="submit" hidden></button>
+        </form>
+        <p class="lock">הפרטים נשארים אצלנו. נציג יחזור אליכם רק לגבי ההצעה הזו.</p>
+      </section>
+
+      <!-- 5 · result -->
+      <section class="screen" data-step="5" hidden>
+        <div class="calc" id="calc">
+          <div><i></i>ממקמים את הציוד במקום שלכם</div>
+          <div><i></i>מחשבים מחיר לפי המחירון</div>
+          <div><i></i>בודקים הטבות בשבילכם</div>
+        </div>
+        <div id="result" hidden style="display:grid;gap:16px">
+          <h2 class="q">הנה המחיר המשוער שלכם</h2>
+          <div class="price">
+            <small>מחיר לפני הנחה · כולל הובלה והתקנה</small>
+            <div class="amount num"><bdi dir="ltr" id="priceBig">₪0</bdi></div>
+            <div class="range">בין <bdi dir="ltr" id="priceLow"></bdi> ל-<bdi dir="ltr" id="priceHigh"></bdi></div>
+            <div class="fit" id="priceFit" hidden></div>
+          </div>
+          <div class="offer-id">מספר הצעה: <b class="num" id="offerNo">—</b></div>
+          <div class="gift">
+            <b>🎁 מחכה לכם הנחה נוספת של עד 30%</b>
+            <p>וגם הדמייה של המקום שלכם בחינם.</p>
+            <button class="btn wa full" id="giftBtn" type="button">לגלות את ההטבה</button>
+          </div>
+          <div class="viz-slot s5" data-slot="5"></div>
+          <details>
+            <summary>מה כלול במחיר?</summary>
+            <div class="rows" id="rows"></div>
+          </details>
+          <p class="note">המחיר מבוסס על המחירים שבאתר טוטאל פיטנס, והוא משוער ולא הצעת מחיר סופית. המחיר הסופי נקבע לפי הדגמים, הכמויות ותנאי ההתקנה.</p>
+        </div>
+      </section>
+
+      <footer>
+        <div>טוטאל פיטנס · דוכיפת 113, גילת · <bdi dir="ltr">077-2315903</bdi> · <bdi dir="ltr">050-711-2110</bdi></div>
+        <div><a href="https://totalfitness.co.il" target="_blank" rel="noopener">totalfitness.co.il</a></div>
+        <div><a href="#admin" id="staffLink" hidden>כניסת צוות</a></div>
+      </footer>
+    </div>
+
+    <div class="dock" id="dock" hidden>
+      <div class="dock-in">
+        <div class="dock-info" id="dockInfo"></div>
+        <div class="dock-btns">
+          <button class="btn line back" id="backBtn" type="button">→ חזרה</button>
+          <button class="btn" id="nextBtn" type="button">המשך ←</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= ADMIN ================= -->
+  <main id="admin" hidden>
+    <div class="adm">
+      <div class="adm-head">
+        <div><div style="color:var(--red);font-weight:700;font-size:14px">מערכת אחורית · מחשבון מתחם כושר</div><h1>לידים והצעות</h1></div>
+        <div class="row"><span class="mode" id="modeBadge">מתחבר…</span><a class="btn line" style="min-height:44px;font-size:15px" href="#start">חזרה למחשבון</a><button class="btn line" style="min-height:44px;font-size:15px" id="admLogout" type="button" hidden>יציאה</button></div>
+      </div>
+      <div class="card" id="admLogin" hidden style="max-width:420px">
+        <h3>כניסת צוות</h3>
+        <form id="admLoginForm" style="display:grid;gap:12px">
+          <div class="field"><label for="admKey">סיסמה</label><input id="admKey" type="password" autocomplete="current-password"></div>
+          <button class="btn" type="submit">כניסה</button>
+          <div class="err" id="admErr"></div>
+        </form>
+      </div>
+      <div id="admBody" style="display:grid;gap:16px" hidden>
+        <div class="tabs" role="tablist"><button type="button" role="tab" id="tabBtnLeads" aria-selected="true">לידים והצעות</button><button type="button" role="tab" id="tabBtnPrices" aria-selected="false">מחירים</button></div>
+        <section id="tabLeads" style="display:grid;gap:16px">
+          <div class="search"><input id="q" type="search" placeholder="הקלידו מספר הצעה, טלפון או שם" aria-label="חיפוש"></div>
+          <div class="stats" id="stats"></div>
+          <div class="adm-grid">
+            <div class="leads" id="leads"></div>
+            <div class="detail" id="detail"><div class="empty">הקלידו מספר הצעה או בחרו ליד מהרשימה.</div></div>
+          </div>
+        </section>
+        <section id="tabPrices" class="prices" hidden>
+          <div class="price-note" id="priceNote"></div>
+          <div><h3 style="margin:0 0 8px;font-size:15px;color:var(--muted)">הצעות לדוגמה במחירים שבטופס</h3><div class="examples" id="priceExamples"></div></div>
+          <div class="plist" id="plist"></div>
+          <div class="row"><button class="btn" id="pSave" type="button">שמירת מחירים</button><button class="btn line" id="pReset" type="button">החזרה למחירי ברירת המחדל</button></div>
+          <p class="note" id="pMeta"></p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= OFFER POPUP ================= -->
+  <div class="modal" id="offer" hidden role="dialog" aria-modal="true" aria-labelledby="offerTitle">
+    <div class="sheet">
+      <button class="x" id="offerX" type="button" aria-label="סגירה">✕</button>
+      <div id="offerMain" style="display:grid;gap:14px">
+        <svg class="mono" viewBox="172 58 584 616" aria-hidden="true"><use href="#tfMono"/></svg>
+        <h2 id="offerTitle">רגע! מחכה לך הטבה 🎁</h2>
+        <p class="note" id="scratchHelp" style="font-size:16px">גרדו עם האצבע על הכרטיס כדי לגלות</p>
+        <div class="scratch" id="scratch">
+          <div class="under"><b>עד 30%</b><span>הנחה על כל הציוד</span><span style="font-size:15px;font-weight:500">+ הדמייה של המקום בחינם</span></div>
+          <canvas id="scratchCv" aria-label="כרטיס גירוד"></canvas>
+          <span class="hand" id="hand" aria-hidden="true">👆</span>
+        </div>
+        <button class="later" id="revealBtn" type="button">או לחצו כאן כדי לגלות</button>
+        <div id="revealed" hidden style="display:grid;gap:14px">
+          <div class="plus"><i>+</i>הדמייה של המקום שלך בחינם</div>
+          <div class="compare">
+            <div><small>המחיר שלך</small><s class="num"><bdi dir="ltr" id="cmpList">₪0</bdi></s></div>
+            <div class="best"><small>עם ההנחה, החל מ-</small><b class="num"><bdi dir="ltr" id="cmpBest">₪0</bdi></b></div>
+          </div>
+          <a class="btn wa full" id="waBtn" href="https://wa.me/972507112110" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.2.5.2.5.4.1.1.1.7-.1 1.2Z"/></svg>
+            קבל
+          </a>
+          <p class="note">הלחיצה פותחת שיחת וואטסאפ עם טוטאל פיטנס. ההטבה שמורה על הצעה מספר <b id="offerNo2">—</b>.</p>
+        </div>
+        <button class="later" id="laterBtn" type="button">אולי אחר כך</button>
+      </div>
+      <div id="offerAfter" hidden style="display:grid;gap:14px">
+        <svg class="mono" viewBox="172 58 584 616" aria-hidden="true"><use href="#tfMono"/></svg>
+        <h2>ממשיכים בוואטסאפ</h2>
+        <p class="note" style="font-size:16px">אם וואטסאפ לא נפתח, שלחו את ההודעה הזו למספר <bdi dir="ltr"><b>050-711-2110</b></bdi>:</p>
+        <div class="msg" id="msgText"></div>
+        <button class="btn line full" id="copyMsg" type="button">העתקת ההודעה</button>
+        <a class="btn wa full" id="waAgain" href="https://wa.me/972507112110" target="_blank" rel="noopener">פתיחת וואטסאפ שוב</a>
+      </div>
+    </div>
+  </div>
+  <canvas id="confetti" hidden></canvas>
+  <div class="toast" id="toast" hidden></div>
+</div>
+
+<script>
+(() => {
+"use strict";
+
+/* ===================== CONFIG ===================== */
+const CONFIG = {
+  whatsapp: "972507112110",
+  // כתובת ה-Web App של Google Apps Script (ראו README). כשהיא מוגדרת, הלידים נשמרים בגוגל שיטס
+  // והפאנל האחורי קורא משם. בלי כתובת, הלידים נשמרים רק בדפדפן שבו הוזנו.
+  sheetUrl: "",
+  floorPerSqm: 120,     // אריח בלימה 1×1 מ׳ · ₪120 באתר
+  installRate: 0.05,    // הובלה והתקנה: אומדן, אין מחיר באתר
+};
+
+/* Categories and prices from totalfitness.co.il (October 2026).
+   need = floor area per unit including walkways (m²), calibrated to Total Fitness's own projects:
+   about 15 machines and equipment items in 50 m², and 8 Pilates reformers in 50 m². */
+const CATALOG = [
+  {key:"treadmill", name:"הליכון מקצועי",                 desc:"להליכה וריצה · Life Active",              price:15900, need:3.2,  w:.9,  d:2.1, h:1.35, draw:"treadmill"},
+  {key:"elliptical",name:"אליפטיקל מקצועי",               desc:"אירובי שקט ועדין למפרקים",                 price:9900,  need:2.6,  w:.8,  d:1.8, h:1.45, draw:"elliptical"},
+  {key:"spin",      name:"אופני ספינינג",                  desc:"גלגל תנופה 20 ק״ג",                        price:3200,  need:1.6,  w:.55, d:1.2, h:1.15, draw:"spin"},
+  {key:"stairs",    name:"מכשיר מדרגות",                   desc:"אירובי עצים · Life Active",                price:16990, need:2.6,  w:.9,  d:1.6, h:1.6,  draw:"stairs"},
+  {key:"hs",        name:"מכשירי כוח עם משקולות מובנות",   desc:"בטוחים וקלים לשימוש · סדרת HS",            price:8990,  need:3.6,  w:1.3, d:1.8, h:2.1,  draw:"selector"},
+  {key:"plate",     name:"מכשירי כוח עם צלחות",            desc:"למתאמנים מתקדמים · סדרות TA / TB / TN",    price:7990,  need:4,    w:1.6, d:1.8, h:1.45, draw:"plate"},
+  {key:"anyfit",    name:"AnyFit פרימיום",                 desc:"מכשירי כוח גרמניים, בבלעדיות טוטאל פיטנס", price:8900,  need:3.6,  w:1.3, d:1.8, h:2.1,  draw:"anyfit"},
+  {key:"station",   name:"מולטי טריינר עם סמית משין",      desc:"הרבה תרגילים במכשיר אחד",                  price:12990, need:5.5,  w:2.2, d:1.6, h:2.2,  draw:"station", max:2},
+  {key:"gym360",    name:"מתקן פונקציונלי Gym 360",        desc:"4 תחנות לאימונים קבוצתיים",                price:19000, need:10,   w:3.4, d:2.4, h:2.6,  draw:"rig", max:2},
+  {key:"rack",      name:"חצי כלוב עם סמית",               desc:"לאימון עם מוט ומשקולות",                   price:4940,  need:4.5,  w:1.6, d:1.6, h:2.3,  draw:"rack"},
+  {key:"bench",     name:"ספסל מתכוונן מקצועי",            desc:"מתאים להרבה תרגילים",                      price:1790,  need:2,    w:.6,  d:1.4, h:.52,  draw:"bench"},
+  {key:"dumbbells", name:"משקולות יד + סטנד",              desc:"סט משקולות על סטנד",                       price:5900,  need:3.5,  w:2.0, d:.7,  h:.65,  draw:"dumbbells", max:2},
+  {key:"pilates",   name:"מיטת פילאטיס (רפורמר)",          desc:"רפורמר עץ מייפל",                          price:7800,  need:6.25, w:.7,  d:2.4, h:.7,   draw:"reformer"},
+  {key:"acc",       name:"אביזרים",                        desc:"קטלבלים, גומיות, כדורים ומזרנים",          price:2900,  need:1.5,  w:1.2, d:.6,  h:.32,  draw:"acc", max:2},
+];
+const CAT = Object.fromEntries(CATALOG.map(c => [c.key, c]));
+const PACK_ORDER = ["treadmill","elliptical","spin","stairs","station","hs","anyfit","plate","gym360","rack","bench","dumbbells","pilates","acc"];
+
+const ICON = {
+  home:`<svg viewBox="0 0 56 56" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M8 26 28 9l20 17" stroke="#030505"/><path d="M13 22v25h30V22" stroke="#030505"/><path d="M21 37h14M24 33v8M32 33v8" stroke="#eb3f25"/></svg>`,
+  pilates:`<svg viewBox="0 0 56 56" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="30" width="44" height="9" rx="3" stroke="#030505"/><path d="M10 39v7M46 39v7" stroke="#030505"/><rect x="18" y="25" width="14" height="5" rx="2" stroke="#eb3f25"/><path d="M44 30V18" stroke="#eb3f25"/><circle cx="28" cy="14" r="4" stroke="#eb3f25"/></svg>`,
+  gym:`<svg viewBox="0 0 56 56" fill="none" stroke-width="3" stroke-linecap="round"><path d="M18 28h20" stroke="#030505"/><rect x="10" y="18" width="7" height="20" rx="2" stroke="#eb3f25"/><rect x="39" y="18" width="7" height="20" rx="2" stroke="#eb3f25"/><path d="M5 23v10M51 23v10" stroke="#030505"/></svg>`,
+  building:`<svg viewBox="0 0 56 56" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="13" y="7" width="30" height="42" rx="2" stroke="#030505"/><path d="M20 15h4M32 15h4M20 23h4M32 23h4M20 31h4M32 31h4" stroke="#030505"/><path d="M24 49v-9h8v9" stroke="#eb3f25"/></svg>`,
+};
+const SPACES = {
+  home:     {label:"חדר כושר ביתי",      sub:"בבית, במרתף או בחצר",     area:20,  plan:["rack","bench","dumbbells","treadmill","acc","elliptical","station"], extra:[]},
+  pilates:  {label:"סטודיו פילאטיס",      sub:"מיטות פילאטיס (רפורמרים)", area:50,  plan:["pilates"], extra:["acc"]},
+  gym:      {label:"מכון כושר",           sub:"מכון כושר מסחרי",          area:150, plan:["treadmill","hs","plate","rack","bench","dumbbells","elliptical","station","treadmill","hs","plate","stairs","gym360","spin","anyfit"], extra:["acc"]},
+  building: {label:"בניין, מלון או משרד", sub:"חדר כושר לדיירים ועובדים", area:50,  plan:["treadmill","elliptical","station","bench","dumbbells","acc","hs"], extra:[]},
+};
+const STEP_NAMES = ["", "המקום", "הגודל", "הציוד", "הפרטים"];
+const STAGES = ["details","quote","offer","whatsapp"];
+const STAGE_LABEL = {details:"השאיר פרטים", quote:"צפה במחיר", offer:"ראה את ההטבה", whatsapp:"לחץ קבל · וואטסאפ"};
+const CRM_STAGES = ["חדש","בטיפול","נשלחה הצעה","נסגר","לא רלוונטי"];
+
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const fmt = n => "₪" + Math.round(n).toLocaleString("en-US");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+const zeroQty = () => Object.fromEntries(CATALOG.map(c => [c.key, 0]));
+const buzz = () => { try { navigator.vibrate?.(8); } catch {} };
+
+/* ===================== SPACE MODEL ===================== */
+const needOf = qty => CATALOG.reduce((s,c) => s + (qty[c.key] || 0) * c.need, 0);
+const utilOf = (qty, area) => needOf(qty) / Math.max(area, 1) * 100;
+const countOf = qty => CATALOG.reduce((n,c) => n + (qty[c.key] || 0), 0);
+
+function pack(W, D, qty, M, gx, gy){
+  let x = M, y = M, rowD = 0;
+  const placed = [], overflow = [];
+  for (const key of PACK_ORDER){
+    const c = CAT[key];
+    for (let i = 0; i < (qty[key] || 0); i++){
+      const id = key + "-" + i;
+      if (x + c.w > W - M + 1e-6){ x = M; y += rowD + gy; rowD = 0; }
+      if (y + c.d > D - M + 1e-6 || c.w > W - 2*M){ overflow.push(id); continue; }
+      placed.push({id, key, x, y, w:c.w, d:c.d});
+      x += c.w + gx; rowD = Math.max(rowD, c.d);
+    }
+  }
+  return {W, D, placed, overflow};
+}
+// Try roomy spacing first, tighten only if needed so the picture always shows what was chosen.
+function layout(area, qty){
+  area = clamp(area, 8, 3000);
+  const W = Math.sqrt(area * 1.45), D = area / W;
+  let r;
+  for (const g of [[.45,.4,.7],[.3,.25,.45],[.15,.12,.25],[.06,.05,.1]]){ r = pack(W, D, qty, ...g); if (!r.overflow.length) return r; }
+  return r;
+}
+// Recommended floor area for a selection: tight fit .. comfortable fit, rounded to 5 m².
+function recRange(qty){
+  const n = needOf(qty);
+  return [Math.max(5, Math.ceil(n / 5) * 5), Math.max(10, Math.ceil(n * 1.25 / 5) * 5)];
+}
+function autoFillFor(space, area){
+  const sp = SPACES[space || "home"], q = zeroQty();
+  let used = 0, i = 0, idle = 0;
+  while (idle < sp.plan.length && i < 800){
+    const key = sp.plan[i % sp.plan.length]; i++;
+    if (q[key] < (CAT[key].max || 30) && used + CAT[key].need <= area + 1e-6){ q[key]++; used += CAT[key].need; idle = 0; } else idle++;
+  }
+  for (const key of sp.extra) if (!q[key] && used + CAT[key].need <= area){ q[key]++; used += CAT[key].need; }
+  if (!countOf(q)) q.bench = 1;
+  return q;
+}
+
+/* ===================== ISOMETRIC DRAWING ===================== */
+const C30 = .8660254;
+const COL = {dark:"#2a2c30", mid:"#4a4e55", pad:"#16171a", steel:"#b7bcc3", red:"#eb3f25", console:"#5b6068", wood:"#d9c29a", silver:"#ebe9e4"};
+const shadeCache = new Map();
+function shade(hex, amt){
+  const k = hex + amt; let v = shadeCache.get(k); if (v) return v;
+  const h = hex.replace("#",""), r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16);
+  const t = amt < 0 ? 0 : 255, p = Math.abs(amt);
+  v = `rgb(${Math.round(r+(t-r)*p)},${Math.round(g+(t-g)*p)},${Math.round(b+(t-b)*p)})`;
+  shadeCache.set(k, v); return v;
+}
+const makePen = (ctx, ox, oy, s) => ({ctx, s, P:(x,y,z) => [ox + (x - y) * C30 * s, oy + (x + y) * .5 * s - z * s]});
+function poly(ctx, pts, fill, stroke){
+  ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+  for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+  ctx.closePath();
+  if (fill){ ctx.fillStyle = fill; ctx.fill(); }
+  if (stroke){ ctx.strokeStyle = stroke; ctx.stroke(); }
+}
+function box(pn, x, y, z, w, d, h, col){
+  if (h <= .001) return;
+  const P = pn.P, c = pn.ctx, st = "rgba(0,0,0,.28)";
+  c.lineWidth = Math.max(.5, pn.s * .012);
+  poly(c, [P(x,y+d,z),P(x+w,y+d,z),P(x+w,y+d,z+h),P(x,y+d,z+h)], shade(col,-.14), st);
+  poly(c, [P(x+w,y,z),P(x+w,y+d,z),P(x+w,y+d,z+h),P(x+w,y,z+h)], shade(col,-.38), st);
+  poly(c, [P(x,y,z+h),P(x+w,y,z+h),P(x+w,y+d,z+h),P(x,y+d,z+h)], shade(col,.12), st);
+}
+const DRAW = {
+  treadmill(b){ b(.05,.15,0,.8,1.9,.22,COL.dark); b(.14,.32,.22,.62,1.62,.025,"#101113"); b(.06,.16,.22,.07,.07,1.0,COL.mid); b(.77,.16,.22,.07,.07,1.0,COL.mid); b(0,.04,1.18,.9,.32,.16,COL.console); b(.2,.04,1.34,.5,.04,.02,COL.red); },
+  elliptical(b){ b(.15,.15,0,.5,1.55,.16,COL.dark); b(.32,.14,.16,.16,.18,1.12,COL.mid); b(.15,.06,1.28,.5,.26,.14,COL.console); b(.18,.7,.16,.44,.55,.1,COL.mid); b(.25,1.25,.16,.3,.45,.38,COL.red); },
+  spin(b){ b(.05,.05,0,.45,1.1,.08,COL.dark); b(.18,.1,.08,.18,.3,.45,COL.red); b(.22,.15,.5,.1,.1,.55,COL.mid); b(.12,.08,1.0,.3,.2,.06,COL.pad); b(.22,.75,.08,.1,.1,.75,COL.mid); b(.14,.68,.83,.26,.36,.08,COL.pad); },
+  stairs(b){ b(.05,.06,1.38,.8,.3,.18,COL.console); b(.05,.2,0,.8,1.3,.25,COL.dark); b(.12,.25,.61,.66,.4,.18,COL.mid); b(.12,.55,.43,.66,.45,.18,COL.mid); b(.12,.9,.25,.66,.55,.18,COL.mid); b(.05,.18,0,.07,1.0,1.38,COL.red); b(.78,.18,0,.07,1.0,1.38,COL.red); },
+  selector(b, body = COL.dark, acc = COL.red){ b(.4,.05,0,.5,.42,2.1,body); b(.47,.47,.15,.36,.04,1.15,acc); b(.6,.66,0,.1,.1,.42,COL.mid); b(.36,.62,.42,.58,.16,.85,COL.pad); b(.38,.95,0,.55,.5,.42,COL.mid); b(.3,.88,.42,.7,.62,.1,COL.pad); b(.08,.66,1.02,1.14,.09,.08,COL.mid); },
+  anyfit(b){ DRAW.selector(b, COL.silver, COL.red); },
+  plate(b){ b(.15,.25,0,1.3,1.4,.1,COL.dark); b(0,.22,.95,.09,.42,.42,COL.red); b(.25,.3,.1,.1,.1,1.35,COL.mid); b(1.25,.3,.1,.1,.1,1.35,COL.mid); b(.1,.28,1.35,1.4,.14,.09,COL.mid); b(.6,.55,.1,.4,.35,.75,COL.pad); b(.5,.95,.1,.6,.6,.38,COL.pad); b(1.51,.22,.95,.09,.42,.42,COL.red); },
+  station(b){ const P = COL.mid; b(0,0,0,2.2,1.6,.05,COL.dark); b(.05,.05,0,.1,.1,2.2,P); b(2.05,.05,0,.1,.1,2.2,P); b(.05,1.45,0,.1,.1,2.2,P); b(.95,.1,0,.36,.3,1.85,COL.red); b(.05,.05,2.12,2.1,.1,.08,P); b(.05,.05,2.12,.1,1.5,.08,P); b(.8,.65,.05,.6,1.0,.42,COL.pad); b(.15,.8,1.25,1.9,.05,.05,COL.steel); b(2.05,1.45,0,.1,.1,2.2,P); b(.05,1.45,2.12,2.1,.1,.08,P); b(2.05,.05,2.12,.1,1.5,.08,P); },
+  rack(b){ const P = COL.mid; b(0,0,0,1.6,1.6,.04,COL.dark); b(.05,.05,0,.09,.09,2.3,P); b(1.46,.05,0,.09,.09,2.3,P); b(.05,1.46,0,.09,.09,2.3,P); b(.05,.05,2.22,1.5,.09,.08,P); b(.05,.05,2.22,.09,1.5,.08,P); b(.3,.2,.04,.06,.3,.45,COL.red); b(1.2,.2,.04,.06,.3,.45,COL.red); b(-.1,.85,1.35,1.8,.04,.04,COL.steel); b(-.12,.78,1.2,.05,.18,.32,COL.red); b(1.67,.78,1.2,.05,.18,.32,COL.red); b(1.46,1.46,0,.09,.09,2.3,P); b(.05,1.46,2.22,1.5,.09,.08,P); b(1.46,.05,2.22,.09,1.5,.08,P); },
+  bench(b){ b(.24,.18,0,.12,.12,.34,COL.mid); b(.24,1.1,0,.12,.12,.34,COL.mid); b(.08,.1,.34,.44,1.2,.04,COL.red); b(.06,.06,.38,.48,1.28,.11,COL.pad); },
+  dumbbells(b){ b(0,.08,0,2,.55,.5,COL.dark); for (let i = 0; i < 7; i++) b(.1 + i*.27,.14,.5,.18,.42,.12, i % 2 ? COL.steel : COL.mid); },
+  rig(b){ const P = COL.mid; b(0,0,0,3.4,2.4,.04,COL.dark);
+    b(.05,.05,0,.1,.1,2.6,P); b(1.65,.05,0,.1,.1,2.6,P); b(3.25,.05,0,.1,.1,2.6,P);
+    b(.05,.05,2.52,3.3,.1,.08,P); b(.05,.05,2.52,.1,2.3,.08,P); b(1.65,.05,2.52,.1,2.3,.08,P);
+    b(.15,1.15,2.3,3.1,.04,.04,COL.steel); b(.8,1.15,1.5,.05,.05,.8,COL.steel); b(1.1,1.15,1.5,.05,.05,.8,COL.steel);
+    b(.05,2.25,0,.1,.1,2.6,P); b(1.65,2.25,0,.1,.1,2.6,P);
+    b(.45,.9,0,.65,.55,.6,COL.red); b(2.05,.75,0,.8,.65,.5,COL.red); b(2.3,1.6,0,.35,.35,.35,COL.pad);
+    b(3.25,2.25,0,.1,.1,2.6,P); b(3.25,.05,2.52,.1,2.3,.08,P); b(.05,2.25,2.52,3.3,.1,.08,P); },
+  reformer(b){ b(.05,.05,0,.6,2.3,.06,COL.dark); b(0,0,.06,.7,2.4,.2,COL.wood); b(.1,.12,.26,.5,.12,.3,COL.pad); b(.1,.8,.26,.5,.75,.08,COL.pad); b(.04,2.1,.26,.62,.05,.4,COL.steel); },
+  acc(b){ b(0,0,0,1.2,.6,.06,COL.dark); b(.08,.1,.06,.22,.22,.24,COL.red); b(.38,.1,.06,.2,.2,.2,COL.mid); b(.65,.1,.06,.18,.18,.17,COL.red); b(.9,.08,.06,.24,.44,.24,COL.pad); b(.08,.36,.06,.75,.18,.14,COL.steel); },
+};
+
+/* real logo paths, painted on the walls of the floor plan */
+function logoPaths(id){
+  return $$(`#${id} path`).map(p => {
+    const m = (p.getAttribute("transform").match(/matrix\(([^)]+)\)/) || [,"1,0,0,1,0,0"])[1].split(",").map(Number);
+    return {m, path: new Path2D(p.getAttribute("d")), red: p.classList.contains("r")};
+  });
+}
+const LOGO = {mono: logoPaths("tfMono"), word: logoPaths("tfWord")};
+function paintLogo(ctx, parts){
+  for (const p of parts){ ctx.save(); ctx.transform(...p.m); ctx.fillStyle = p.red ? COL.red : "#030505"; ctx.fill(p.path); ctx.restore(); }
+}
+function drawThumb(canvas, c){
+  const dpr = Math.min(2, devicePixelRatio || 1), size = 64;
+  canvas.width = size * dpr; canvas.height = size * dpr;
+  const ctx = canvas.getContext("2d"); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const isoW = (c.w + c.d) * C30, isoH = (c.w + c.d) * .5 + c.h;
+  const s = Math.min((size - 10) / isoW, (size - 10) / isoH);
+  const pn = makePen(ctx, size/2 - (c.w - c.d) * C30 * s / 2, (size - isoH * s) / 2 + c.h * s, s);
+  poly(ctx, [pn.P(0,0,0), pn.P(c.w,0,0), pn.P(c.w,c.d,0), pn.P(0,c.d,0)], "rgba(0,0,0,.08)");
+  DRAW[c.draw]((x,y,z,w,d,h,col) => box(pn, x, y, z, w, d, h, col));
+}
+const easeOutBack = t => 1 + 2.5 * Math.pow(t - 1, 3) + 1.5 * Math.pow(t - 1, 2);
+
+class Viz {
+  constructor(canvas){
+    this.c = canvas; this.ctx = canvas.getContext("2d");
+    this.items = new Map(); this.room = {W:8, D:6}; this.disp = {W:8, D:6};
+    this.floor = 0; this.floorT = 0; this.raf = 0;
+    new ResizeObserver(() => this.resize()).observe(canvas);
+    this.resize();
+  }
+  resize(){
+    const r = this.c.getBoundingClientRect(); if (!r.width) return;
+    this.dpr = Math.min(2, devicePixelRatio || 1);
+    this.c.width = Math.round(r.width * this.dpr); this.c.height = Math.round(r.height * this.dpr);
+    this.cw = r.width; this.ch = r.height; this.kick();
+  }
+  set(area, qty, floor, instant){
+    const L = layout(area, qty), now = performance.now();
+    this.room = {W:L.W, D:L.D}; this.floor = floor ? 1 : 0;
+    if (instant){ this.disp = {...this.room}; this.floorT = this.floor; }
+    const seen = new Set();
+    for (const p of L.placed){
+      seen.add(p.id);
+      const it = this.items.get(p.id);
+      if (!it) this.items.set(p.id, {...p, dx:p.x, dy:p.y, born: instant ? now - 2000 : now, dead:0});
+      else { it.x = p.x; it.y = p.y; it.dead = 0; }
+    }
+    for (const [id, it] of this.items) if (!seen.has(id) && !it.dead) it.dead = now;
+    this.kick();
+    return L;
+  }
+  kick(){ if (!this.raf) this.raf = requestAnimationFrame(t => { this.raf = 0; if (this.draw(t)) this.kick(); }); }
+  draw(t){
+    const ctx = this.ctx; if (!this.cw) return false;
+    ctx.setTransform(this.dpr,0,0,this.dpr,0,0); ctx.clearRect(0,0,this.cw,this.ch);
+    let busy = false; const k = REDUCED ? 1 : .14;
+    for (const key of ["W","D"]){
+      const dv = this.room[key] - this.disp[key];
+      if (Math.abs(dv) > .004){ this.disp[key] += dv * k; busy = true; } else this.disp[key] = this.room[key];
+    }
+    const df = this.floor - this.floorT;
+    if (Math.abs(df) > .01){ this.floorT += df * k; busy = true; } else this.floorT = this.floor;
+
+    const W = this.disp.W, D = this.disp.D, H = 2.5;
+    const padX = 16, padTop = 40, padBot = 48;
+    const isoW = (W + D) * C30, isoH = (W + D) * .5 + H;
+    const s = Math.min((this.cw - padX*2) / isoW, (this.ch - padTop - padBot) / isoH);
+    const ox = this.cw/2 - (W - D) * C30 * s / 2;
+    const oy = padTop + (this.ch - padTop - padBot - isoH * s) / 2 + H * s;
+    const pn = makePen(ctx, ox, oy, s), P = pn.P, d = this.dpr;
+
+    // walls with the logo
+    poly(ctx, [P(0,0,0),P(0,D,0),P(0,D,H),P(0,0,H)], "#f7f7f8");
+    poly(ctx, [P(0,0,0),P(W,0,0),P(W,0,H),P(0,0,H)], "#e9e9ec");
+    poly(ctx, [P(0,0,2.2),P(0,D,2.2),P(0,D,2.3),P(0,0,2.3)], COL.red);
+    poly(ctx, [P(0,0,2.2),P(W,0,2.2),P(W,0,2.3),P(0,0,2.3)], COL.red);
+    if (D > 1.8){
+      const hm = Math.min(1.3, D * .45), km = hm / 616, wm = 584 * km, o = P(0, D/2 + wm/2, .7 + hm);
+      ctx.save(); ctx.setTransform(d*C30*s*km, -d*.5*s*km, 0, d*s*km, d*o[0], d*o[1]); ctx.translate(-172, -58); paintLogo(ctx, LOGO.mono); ctx.restore();
+    }
+    if (W > 2.2){
+      const ww = Math.min(W - 1, 3.4), kw = ww / 762, o = P((W - ww)/2, 0, 1.25 + 72*kw);
+      ctx.save(); ctx.setTransform(d*C30*s*kw, d*.5*s*kw, 0, d*s*kw, d*o[0], d*o[1]); ctx.translate(-70, -713); paintLogo(ctx, LOGO.word); ctx.restore();
+    }
+    // floor: light concrete, or black rubber tiles
+    const ft = this.floorT, mix = (a,b) => Math.round(a + (b - a) * ft);
+    poly(ctx, [P(0,0,0),P(W,0,0),P(W,D,0),P(0,D,0)], `rgb(${mix(214,40)},${mix(214,41)},${mix(218,44)})`);
+    if (W * D < 4000){
+      ctx.strokeStyle = ft > .5 ? "rgba(255,255,255,.08)" : "rgba(0,0,0,.07)"; ctx.lineWidth = 1; ctx.beginPath();
+      for (let i = 1; i < W; i++){ const a = P(i,0,0), b2 = P(i,D,0); ctx.moveTo(a[0],a[1]); ctx.lineTo(b2[0],b2[1]); }
+      for (let j = 1; j < D; j++){ const a = P(0,j,0), b2 = P(W,j,0); ctx.moveTo(a[0],a[1]); ctx.lineTo(b2[0],b2[1]); }
+      ctx.stroke();
+    }
+    ctx.lineWidth = 2; ctx.strokeStyle = COL.red; ctx.beginPath(); { const e1 = P(0,D,0), e2 = P(W,D,0), e3 = P(W,0,0); ctx.moveTo(e1[0],e1[1]); ctx.lineTo(e2[0],e2[1]); ctx.lineTo(e3[0],e3[1]); } ctx.stroke();
+    ctx.font = "500 12px 'Google Sans', Arial, sans-serif"; ctx.fillStyle = "#a9adb3"; ctx.textAlign = "center"; ctx.direction = "ltr";
+    const a = P(W/2, D, 0), b2 = P(W, D/2, 0);
+    ctx.fillText(W.toFixed(1) + " מ׳", a[0] - 12, a[1] + 18);
+    ctx.fillText(D.toFixed(1) + " מ׳", b2[0] + 14, b2[1] + 18);
+
+    // equipment
+    const list = [];
+    for (const [id, it] of this.items){
+      let hs = 1;
+      if (it.dead){ const q = (t - it.dead) / 260; if (q >= 1){ this.items.delete(id); continue; } hs = 1 - q; busy = true; }
+      const p = (t - it.born) / 480;
+      if (p < 1 && !REDUCED){ hs *= easeOutBack(Math.max(0, p)); busy = true; }
+      if (p < 1.6 && !REDUCED) busy = true;
+      const ddx = it.x - it.dx, ddy = it.y - it.dy;
+      if (Math.abs(ddx) > .004 || Math.abs(ddy) > .004){ it.dx += ddx * k; it.dy += ddy * k; busy = true; } else { it.dx = it.x; it.dy = it.y; }
+      list.push([it, hs, p]);
+    }
+    for (const [it, hs, p] of list){
+      if (hs > .05) poly(ctx, [P(it.dx-.08,it.dy-.08,0),P(it.dx+it.w+.18,it.dy-.08,0),P(it.dx+it.w+.18,it.dy+it.d+.18,0),P(it.dx-.08,it.dy+it.d+.18,0)], `rgba(0,0,0,${.22 * Math.min(1,hs)})`);
+      if (p < 1.6 && !REDUCED && !it.dead){  // landing ring
+        const r = .08 + p * .45, al = .8 * (1 - p / 1.6);
+        ctx.lineWidth = 2.5; poly(ctx, [P(it.dx-r,it.dy-r,0),P(it.dx+it.w+r,it.dy-r,0),P(it.dx+it.w+r,it.dy+it.d+r,0),P(it.dx-r,it.dy+it.d+r,0)], null, `rgba(235,63,37,${al})`);
+      }
+    }
+    list.sort((a,b) => (a[0].dx + a[0].w/2 + a[0].dy + a[0].d/2) - (b[0].dx + b[0].w/2 + b[0].dy + b[0].d/2));
+    for (const [it, hs] of list){
+      if (hs <= 0) continue;
+      DRAW[CAT[it.key].draw]((x,y,z,w,dd,h,col) => box(pn, it.dx + x, it.dy + y, z * hs, w, dd, h * hs, col));
+    }
+    return busy;
+  }
+}
+
+/* ===================== STORAGE ===================== */
+const LS_KEY = "tf-calc-leads";
+const lsGet = k => { try { return JSON.parse(localStorage.getItem(k) || "{}"); } catch { return {}; } };
+const lsSet = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+// Three backends, picked at load: the claude.ai page database, a Google Sheet (when hosted), or this browser only.
+const Store = {
+  mode:"local", db:null, user:null, denied:false, checked:new Set(), pending:null, writing:false,
+  init(){
+    this.ready = (async () => {
+      let cl = window.claude;
+      if (!cl?.use){ await new Promise(r => setTimeout(r, 300)); cl = window.claude; }
+      if (cl?.use){
+        try {
+          const [db, user] = await Promise.all([cl.use("db").catch(() => null), cl.use("user").catch(() => null)]);
+          this.user = user;
+          if (db){ this.db = db; this.mode = "db"; return; }
+        } catch {}
+      }
+      if (CONFIG.sheetUrl) this.mode = "sheet";
+    })();
+  },
+  async sheet(body){
+    const r = await fetch(CONFIG.sheetUrl, {method:"POST", body: JSON.stringify(body)});
+    return r.json();
+  },
+  save(lead){
+    const copy = JSON.parse(JSON.stringify(lead));
+    const m = lsGet(LS_KEY); m[copy.id] = copy; lsSet(LS_KEY, m);
+    this.pending = copy; this.pump();
+  },
+  async pump(){
+    if (this.writing) return; this.writing = true;
+    try {
+      await this.ready;
+      while (this.pending){
+        const l = this.pending; this.pending = null;
+        if (this.mode === "db" && !this.denied) await this.dbWrite(l);
+        else if (this.mode === "sheet"){ try { await this.sheet({action:"save", lead:l}); } catch {} }
+      }
+    } finally { this.writing = false; }
+  },
+  async dbWrite(l, retry = true){
+    try {
+      if (!this.checked.has(l.id)){
+        const snap = await this.db.doc("leads/" + l.id).get();
+        if (snap.exists && snap.data()?.phone !== l.phone){
+          const old = l.id; l.id = newId();
+          if (S.lead && S.lead.id === old){ S.lead.id = l.id; refreshOfferNo(); }
+        }
+        this.checked.add(l.id);
+      }
+      await this.db.doc("leads/" + l.id).set(l);
+    } catch (e){
+      if (e?.code === "unavailable" && retry){ await new Promise(r => setTimeout(r, 500 + Math.random()*500)); return this.dbWrite(l, false); }
+      if (e?.code === "invalid_argument") this.denied = true;
+    }
+  },
+  // Staff notes live in their own collection so customer-side saves never overwrite them.
+  async updateCrm(id, crm){
+    if (this.mode === "db"){ await this.db.doc("crm/" + id).set(crm); return; }
+    if (this.mode === "sheet"){ const r = await this.sheet({action:"crm", key: adminKey(), id, crm}); if (!r.ok) throw new Error(r.error); return; }
+    const m = lsGet(LS_KEY + "-crm"); m[id] = crm; lsSet(LS_KEY + "-crm", m);
+  },
+};
+Store.init();
+
+/* ===================== PRICES (editable in the back panel) ===================== */
+const PRICE_LS = "tf-prices";
+const DEFAULT_PRICES = { items: Object.fromEntries(CATALOG.map(c => [c.key, c.price])), floorPerSqm: CONFIG.floorPerSqm, installRate: CONFIG.installRate };
+const PRICES = { updatedAt: null };
+function applyPrices(p){
+  if (!p || typeof p !== "object") return;
+  for (const c of CATALOG){ const v = Number(p.items?.[c.key]); if (p.items && p.items[c.key] != null && Number.isFinite(v) && v >= 0) c.price = Math.round(v); }
+  const f = Number(p.floorPerSqm); if (p.floorPerSqm != null && Number.isFinite(f) && f >= 0) CONFIG.floorPerSqm = Math.round(f);
+  const r = Number(p.installRate); if (p.installRate != null && Number.isFinite(r) && r >= 0 && r <= 0.5) CONFIG.installRate = r;
+  if (p.updatedAt) PRICES.updatedAt = p.updatedAt;
+}
+// Customers get the latest saved prices; the built-in list is the fallback.
+const pricesReady = (async () => {
+  await Store.ready;
+  try {
+    if (Store.mode === "db"){ const s = await Store.db.doc("config/prices").get(); if (s.exists) applyPrices(s.data()); }
+    else if (Store.mode === "sheet"){ const r = await Store.sheet({action:"prices"}); if (r.ok && r.prices) applyPrices(r.prices); }
+    else applyPrices(lsGet(PRICE_LS));
+  } catch {}
+})();
+async function savePrices(p){
+  p = { ...p, updatedAt: Date.now() };
+  if (Store.mode === "db") await Store.db.doc("config/prices").set(p);
+  else if (Store.mode === "sheet"){ const r = await Store.sheet({action:"setPrices", key: adminKey(), prices: p}); if (!r.ok) throw new Error(r.error || "error"); }
+  else lsSet(PRICE_LS, p);
+  applyPrices(p);
+}
+const newId = () => String(100000 + Math.floor(Math.random() * 900000));
+
+/* ===================== STATE ===================== */
+const S = { step:0, space:null, area:50, areaSet:false, qty:zeroQty(), floor:true, manual:false, showMore:false, lead:null, revealed:false };
+
+function quote(){
+  const lines = [];
+  for (const c of CATALOG){ const q = S.qty[c.key] || 0; if (q) lines.push({key:c.key, name:c.name, qty:q, sum:q * c.price}); }
+  const equip = lines.reduce((a,l) => a + l.sum, 0);
+  const floorSum = S.floor ? Math.round(S.area * CONFIG.floorPerSqm) : 0;
+  const install = Math.round(equip * CONFIG.installRate / 100) * 100;
+  const list = equip + floorSum + install;
+  return {lines, equip, floorSum, install, list, low: Math.round(list * .94 / 100) * 100, high: Math.round(list * 1.06 / 100) * 100, best: Math.round(list * .7 / 100) * 100};
+}
+function autoFill(){ S.qty = autoFillFor(S.space, S.area); S.floor = S.space !== "building"; }
+
+/* ===================== HERO: a gym that builds itself ===================== */
+const heroViz = new Viz($("#heroViz"));
+const SCENES = [
+  {space:"home", area:20, label:"חדר כושר ביתי"},
+  {space:"pilates", area:50, label:"סטודיו פילאטיס"},
+  {space:"gym", area:140, label:"מכון כושר"},
+];
+let heroRun = 0;
+function heroLoop(){
+  const run = ++heroRun;
+  let si = 0;
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  (async () => {
+    while (run === heroRun){
+      const sc = SCENES[si % SCENES.length]; si++;
+      const full = autoFillFor(sc.space, sc.area);
+      $("#sceneChip").innerHTML = `${sc.label} · <b>${sc.area} מ״ר</b>`;
+      if (REDUCED){ heroViz.set(sc.area, full, sc.space !== "building", true); await wait(3500); continue; }
+      const q = zeroQty();
+      heroViz.set(sc.area, q, false);
+      await wait(700); if (run !== heroRun) return;
+      heroViz.set(sc.area, q, sc.space !== "building");
+      const order = PACK_ORDER.flatMap(k => Array(full[k]).fill(k));
+      const step = Math.max(90, Math.min(260, 2600 / order.length));
+      for (const k of order){
+        if (run !== heroRun) return;
+        q[k]++; heroViz.set(sc.area, q, sc.space !== "building");
+        await wait(step);
+      }
+      const pop = document.createElement("span"); pop.className = "pop";
+      pop.textContent = sc.space === "pilates" ? `${full.pilates} מיטות פילאטיס ב-${sc.area} מ״ר` : `${countOf(full)} פריטי ציוד ב-${sc.area} מ״ר`;
+      $("#heroStage").appendChild(pop); setTimeout(() => pop.remove(), 1100);
+      await wait(2200);
+    }
+  })();
+}
+
+/* ===================== CUSTOMER UI ===================== */
+const vizBox = document.createElement("div");
+vizBox.className = "viz-box";
+vizBox.innerHTML = `<canvas aria-label="הדמיה של המקום"></canvas>
+  <span class="viz-warn" id="vizWarn" hidden></span>
+  <div class="hud"><div class="n"><b class="num" id="hudCount">0</b><small id="hudLabel">פריטי ציוד</small></div>
+  <div class="occ"><div class="occ-top"><span id="occLabel">תפוסת המקום</span><b class="num" id="occPct">0%</b></div><div class="occ-bar"><i id="occBar"></i></div></div></div>`;
+$("[data-slot='2']").appendChild(vizBox);
+const viz = new Viz(vizBox.querySelector("canvas"));
+
+$("#spaceTiles").innerHTML = Object.entries(SPACES).map(([k,v]) =>
+  `<button class="tile" type="button" data-space="${k}" aria-pressed="false">${ICON[k]}<b>${v.label}</b><small>${v.sub}</small></button>`).join("");
+
+function itemHTML(c){
+  return `<div class="item" id="item-${c.key}"><canvas data-thumb="${c.key}" aria-hidden="true"></canvas>
+    <div class="txt"><b>${c.name}</b><small>${c.desc}</small></div><div class="ctrl" data-ctrl="${c.key}"></div></div>`;
+}
+function renderItems(){
+  const plan = [...new Set([...SPACES[S.space].plan, ...SPACES[S.space].extra])];
+  const rest = CATALOG.map(c => c.key).filter(k => !plan.includes(k));
+  $("#itemsMain").innerHTML = plan.map(k => itemHTML(CAT[k])).join("");
+  $("#itemsMore").innerHTML = rest.map(k => itemHTML(CAT[k])).join("");
+  $("#moreBtn").textContent = `+ הצגת עוד ציוד (${rest.length})`;
+  $("#moreBtn").hidden = S.showMore || !rest.length; $("#itemsMore").hidden = !S.showMore;
+  $$("canvas[data-thumb]").forEach(cv => drawThumb(cv, CAT[cv.dataset.thumb]));
+  renderCtrls();
+}
+function renderCtrls(){
+  for (const el of $$("[data-ctrl]")){
+    const key = el.dataset.ctrl, q = S.qty[key] || 0, c = CAT[key];
+    el.innerHTML = q
+      ? `<div class="qty"><button type="button" class="plus" data-inc="${key}" aria-label="להוסיף ${c.name}">+</button><output class="num">${q} ${q === 1 ? "יחידה" : "יחידות"}</output><button type="button" data-dec="${key}" aria-label="להוריד ${c.name}">−</button></div>`
+      : `<button type="button" class="add" data-inc="${key}">+ הוספה</button>`;
+    $("#item-" + key).classList.toggle("has", q > 0);
+  }
+}
+
+function sizeLike(a){
+  if (a <= 12) return ["🛏️","בערך כמו חדר שינה"];
+  if (a <= 22) return ["🛏️","בערך כמו חדר שינה גדול"];
+  if (a <= 38) return ["🛋️","בערך כמו סלון"];
+  if (a <= 70) return ["🏠","בערך כמו דירת 3 חדרים"];
+  if (a <= 120) return ["🏡","בערך כמו דירת 5 חדרים"];
+  if (a <= 260) return ["🏋️","בערך כמו מכון כושר שכונתי"];
+  if (a <= 450) return ["🏀","בערך כמו מגרש כדורסל"];
+  return ["🏟️","יותר ממגרש כדורסל!"];
+}
+const toSlider = a => Math.round(1000 * Math.log(clamp(a,10,600) / 10) / Math.log(60));
+const fromSlider = v => { const a = 10 * Math.pow(60, v / 1000); return a < 30 ? Math.round(a) : a < 100 ? Math.round(a / 5) * 5 : Math.round(a / 10) * 10; };
+let lastEmo = "";
+
+function update(){
+  const L = viz.set(S.area, S.qty, S.floor);
+  const n = countOf(S.qty), u = Math.round(utilOf(S.qty, S.area));
+  const pil = S.space === "pilates" && n === S.qty.pilates;
+  $("#hudCount").textContent = n; $("#hudLabel").textContent = pil ? "מיטות פילאטיס" : "פריטי ציוד";
+  $("#occPct").textContent = u + "%";
+  const bar = $("#occBar"); bar.style.width = Math.min(100, u) + "%";
+  bar.style.background = u > 100 ? "#ff6b55" : u > 90 ? "#ffb020" : "#4ad07f";
+  $("#occLabel").textContent = u > 100 ? "צפוף מדי" : u > 90 ? "כמעט מלא" : u >= 50 ? "מנוצל היטב" : "יש עוד מקום";
+  // Customers may pick as much as they like; we only tell them what size it calls for.
+  const [rLo, rHi] = recRange(S.qty), over = u > 100;
+  const warn = $("#vizWarn");
+  if (S.step === 3 && over){ warn.textContent = `צפוף · מומלץ ${rLo}–${rHi} מ״ר`; warn.hidden = false; } else warn.hidden = true;
+  const fn = $("#fitNote"), wasOver = fn.classList.contains("over");
+  fn.className = "fitnote" + (over ? " over" : "");
+  fn.innerHTML = !n ? `<span class="ic">📐</span><span><b>בחרו ציוד ונראה לכם את הגודל המומלץ</b></span>`
+    : over
+    ? `<span class="ic">📐</span><span><b>הגודל המומלץ לציוד שבחרתם: ${rLo}–${rHi} מ״ר</b><span>יש לכם ${S.area} מ״ר. אפשר להמשיך לבחור כמה שתרצו, ונציג יעזור לתכנן את הפריסה.</span></span>`
+    : `<span class="ic">✅</span><span><b>הכל נכנס! הגודל המומלץ לציוד שבחרתם: ${rLo}–${rHi} מ״ר</b><span>יש לכם ${S.area} מ״ר${S.area > rHi ? ", כך שנשאר מקום לעוד ציוד" : ""}.</span></span>`;
+  if (over !== wasOver && S.step === 3){ fn.classList.remove("bump"); void fn.offsetWidth; fn.classList.add("bump"); }
+
+  // size step
+  $("#area").value = S.area;
+  const sl = $("#areaRange"); sl.value = toSlider(S.area); sl.style.setProperty("--p", (sl.value / 10) + "%");
+  const [emo, like] = sizeLike(S.area);
+  if (emo !== lastEmo){ const e = $("#likeEmo"); e.textContent = emo; e.classList.remove("bounce"); void e.offsetWidth; e.classList.add("bounce"); lastEmo = emo; }
+  $("#likeText").textContent = like;
+  const fit = autoFillFor(S.space, S.area);
+  $("#fitText").innerHTML = S.space === "pilates"
+    ? `נכנסות כאן כ-<strong>${fit.pilates} מיטות פילאטיס</strong>`
+    : `נכנסים כאן כ-<strong>${countOf(fit)} פריטי ציוד</strong>`;
+
+  $$("[data-space]").forEach(b => b.setAttribute("aria-pressed", b.dataset.space === S.space));
+  $("#floor").checked = S.floor; $("#floorRow").classList.toggle("on", S.floor);
+  $("#floorSub").textContent = `שומר על הרצפה ובולם רעש · ${S.area} מ״ר`;
+  if (S.step === 3) renderCtrls();
+  refreshDock();
+  if (S.lead){ snapshotInto(S.lead); persistSoon(); }
+}
+
+/* ---------- navigation ---------- */
+function go(n){
+  S.step = n;
+  $$("[data-step]").forEach(s => s.hidden = +s.dataset.step !== n);
+  $("#customer").classList.toggle("home", n === 0);
+  $("#appHeader").hidden = n === 0;
+  $("#progress").hidden = n === 0 || n === 5;
+  if (n >= 1 && n <= 4){
+    $("#progLabel").textContent = `שלב ${n} מתוך 4`; $("#progName").textContent = STEP_NAMES[n];
+    $("#progBar").style.width = (n / 4 * 100) + "%";
+  }
+  if (n === 0) heroLoop(); else heroRun++;
+  if (n === 3){
+    if (!S.manual) autoFill();
+    renderItems();
+    $("#reco").hidden = S.manual;
+    $("#recoTitle").textContent = S.space === "pilates" ? `בחרנו בשבילכם ${S.qty.pilates} מיטות פילאטיס ל-${S.area} מ״ר` : `בחרנו בשבילכם ציוד מומלץ ל-${S.area} מ״ר`;
+  }
+  if (n === 4) startScramble(); else stopScramble();
+  const slot = $(`[data-slot='${n}']`); if (slot && vizBox.parentNode !== slot) slot.appendChild(vizBox);
+  $("#dock").hidden = n === 0 || (n === 5 && !S.revealed);
+  scrollTo({top:0, behavior:"auto"});
+  update();
+  if (n === 4) setTimeout(() => { if (!$("#fullName").value) $("#fullName").focus({preventScroll:true}); }, 300);
+  if (n === 5) runCalc();
+}
+function refreshDock(){
+  const info = $("#dockInfo"), next = $("#nextBtn"), back = $("#backBtn");
+  next.className = "btn"; next.disabled = false; back.textContent = "→ חזרה";
+  if (S.step === 1){ info.textContent = ""; next.textContent = "המשך ←"; next.disabled = !S.space; }
+  if (S.step === 2){ info.innerHTML = `נבחר: <b>${S.area} מ״ר</b>`; next.textContent = "המשך ←"; }
+  if (S.step === 3){ const n = countOf(S.qty); info.innerHTML = n ? `נבחרו <b>${n} פריטים</b>` : "בחרו לפחות פריט אחד"; next.textContent = "המשך ←"; next.disabled = !n; }
+  if (S.step === 4){ info.textContent = ""; next.textContent = "הציגו לי את המחיר ←"; }
+  if (S.step === 5){ info.innerHTML = `מחכה לכם הנחה של <b>עד 30%</b>`; next.textContent = "לגלות את ההטבה 🎁"; next.className = "btn wa"; back.textContent = "→ שינוי"; }
+}
+$("#startBtn").addEventListener("click", () => { buzz(); go(1); });
+$("#nextBtn").addEventListener("click", () => {
+  buzz();
+  if (S.step === 4) return submitLead();
+  if (S.step === 5) return openOffer();
+  if (S.step < 4) go(S.step + 1);
+});
+$("#backBtn").addEventListener("click", () => go(S.step === 5 ? 3 : S.step - 1));
+addEventListener("hashchange", () => { if (location.hash === "#start" && S.step !== 0) go(0); });
+
+/* ---------- step 1 ---------- */
+$("#spaceTiles").addEventListener("click", e => {
+  const b = e.target.closest("[data-space]"); if (!b) return;
+  buzz();
+  if (S.space !== b.dataset.space){ S.space = b.dataset.space; S.manual = false; S.showMore = false; if (!S.areaSet) S.area = SPACES[S.space].area; autoFill(); }
+  update();
+  setTimeout(() => go(2), REDUCED ? 0 : 420);
+});
+
+/* ---------- step 2 ---------- */
+function setArea(v){ S.area = clamp(Math.round(+v || 0), 8, 3000); S.areaSet = true; if (!S.manual) autoFill(); update(); }
+$("#areaPlus").addEventListener("click", () => { buzz(); setArea(S.area + (S.area >= 100 ? 10 : 5)); });
+$("#areaMinus").addEventListener("click", () => { buzz(); setArea(S.area - (S.area > 100 ? 10 : 5)); });
+$("#area").addEventListener("change", e => setArea(e.target.value));
+$("#area").addEventListener("focus", e => e.target.select());
+$("#areaRange").addEventListener("input", e => setArea(fromSlider(+e.target.value)));
+
+/* ---------- step 3 ---------- */
+$("#customer").addEventListener("click", e => {
+  const inc = e.target.closest("[data-inc]"), dec = e.target.closest("[data-dec]");
+  if (!inc && !dec) return;
+  const key = (inc || dec).dataset[inc ? "inc" : "dec"];
+  S.qty[key] = clamp((S.qty[key] || 0) + (inc ? 1 : -1), 0, 99);
+  S.manual = true; $("#reco").hidden = true; buzz();
+  if (!REDUCED){
+    const f = document.createElement("span"); f.className = "float"; f.textContent = inc ? "+1" : "−1";
+    f.style.left = (e.clientX - 10) + "px"; f.style.top = (e.clientY - 24) + "px";
+    document.body.appendChild(f); setTimeout(() => f.remove(), 800);
+  }
+  update();
+  const it = $("#item-" + key); it?.classList.remove("flash"); void it?.offsetWidth; it?.classList.add("flash");
+});
+$("#moreBtn").addEventListener("click", () => { S.showMore = true; $("#itemsMore").hidden = false; $("#moreBtn").hidden = true; });
+$("#floor").addEventListener("change", e => { S.floor = e.target.checked; S.manual = true; update(); });
+
+/* ---------- step 4 ---------- */
+let scrT = 0;
+function startScramble(){
+  stopScramble();
+  const el = $("#scramble"), len = String(Math.round(quote().list)).length;
+  const tick = () => { let s = ""; for (let i = 0; i < len; i++) s += (Math.random() * 10) | 0; el.textContent = "₪" + Number(s).toLocaleString("en-US").padStart(len + Math.floor((len-1)/3), "0"); };
+  tick(); if (!REDUCED) scrT = setInterval(tick, 90);
+}
+function stopScramble(){ clearInterval(scrT); }
+const normPhone = v => { let d = String(v || "").replace(/\D/g, ""); if (d.startsWith("972")) d = "0" + d.slice(3); return d; };
+const phoneOk = v => /^05\d{8}$/.test(v) || /^0[2-489]\d{7}$/.test(v) || /^07\d{8}$/.test(v);
+const prettyPhone = d => d.length === 10 ? d.slice(0,3) + "-" + d.slice(3) : d.length === 9 ? d.slice(0,2) + "-" + d.slice(2) : d;
+
+function snapshotInto(lead){
+  const q = quote();
+  Object.assign(lead, {
+    name: $("#fullName").value.trim() || lead.name || "",
+    phone: normPhone($("#phone").value) || lead.phone || "",
+    area: S.area, space: S.space, spaceLabel: SPACES[S.space]?.label || "",
+    qty: Object.fromEntries(Object.entries(S.qty).filter(([,v]) => v > 0)),
+    prices: Object.fromEntries(Object.entries(S.qty).filter(([,v]) => v > 0).map(([k]) => [k, CAT[k].price])),
+    floor: S.floor, devices: countOf(S.qty), utilization: Math.round(utilOf(S.qty, S.area)),
+    quote: {list:q.list, low:q.low, high:q.high, best:q.best, equip:q.equip, floor:q.floorSum, install:q.install},
+    device: matchMedia("(max-width: 760px)").matches ? "mobile" : "desktop",
+    updatedAt: Date.now(),
+  });
+}
+function mark(type){
+  const L = S.lead; if (!L) return;
+  if (!L.events.some(e => e.type === type)) L.events.push({type, at: Date.now()});
+  if (STAGES.indexOf(type) > STAGES.indexOf(L.status)) L.status = type;
+}
+function ensureLead(){
+  if (!S.lead) S.lead = {id:newId(), createdAt:Date.now(), status:"details", events:[{type:"details", at:Date.now()}], source:"מחשבון מתחם כושר"};
+  snapshotInto(S.lead);
+}
+let saveT = 0;
+function persistSoon(){ clearTimeout(saveT); saveT = setTimeout(persistNow, 800); }
+function persistNow(){ clearTimeout(saveT); if (S.lead) Store.save(S.lead); }
+
+function validate(show){
+  const name = $("#fullName").value.trim(), ph = normPhone($("#phone").value);
+  const nOk = name.length >= 2, pOk = phoneOk(ph);
+  $("#fullName").classList.toggle("good", nOk); $("#phone").classList.toggle("good", pOk);
+  if (show){
+    $("#nameErr").textContent = nOk ? "" : "נא לכתוב שם";
+    $("#phoneErr").textContent = pOk ? "" : "נא לכתוב מספר טלפון, לדוגמה 050-1234567";
+    $("#fullName").classList.toggle("bad", !nOk); $("#phone").classList.toggle("bad", !pOk);
+  }
+  return nOk && pOk;
+}
+// Save as soon as name and phone are valid, even if the visitor never presses the button.
+["#fullName","#phone"].forEach(sel => $(sel).addEventListener("input", () => {
+  if ($(sel).classList.contains("bad")) validate(true);
+  if (validate(false)){ ensureLead(); persistSoon(); }
+}));
+$("#phone").addEventListener("blur", () => { const d = normPhone($("#phone").value); if (phoneOk(d)) $("#phone").value = prettyPhone(d); });
+$("#fullName").addEventListener("keydown", e => { if (e.key === "Enter"){ e.preventDefault(); $("#phone").focus(); } });
+$("#leadForm").addEventListener("submit", e => { e.preventDefault(); submitLead(); });
+function submitLead(){
+  if (!validate(true)){
+    const d = $(".dock-in"); d.classList.remove("shake"); void d.offsetWidth; d.classList.add("shake");
+    ($("#fullName").classList.contains("bad") ? $("#fullName") : $("#phone")).focus();
+    return;
+  }
+  ensureLead(); persistNow();
+  document.activeElement?.blur?.();
+  go(5);
+}
+
+/* ---------- step 5 ---------- */
+function runCalc(){
+  S.revealed = false;
+  $("#calc").hidden = false; $("#result").hidden = true; $("#dock").hidden = true;
+  const lines = $$("#calc div"); lines.forEach(l => l.className = "");
+  const ms = REDUCED ? 150 : 700;
+  lines.forEach((l,i) => setTimeout(() => { l.className = "on"; if (i) lines[i-1].className = "done"; }, i * ms));
+  setTimeout(() => { lines[lines.length-1].className = "done"; setTimeout(reveal, 250); }, lines.length * ms);
+}
+function reveal(){
+  S.revealed = true;
+  const q = quote();
+  $("#calc").hidden = true; $("#result").hidden = false; $("#dock").hidden = false;
+  refreshOfferNo();
+  $("#priceLow").textContent = fmt(q.low); $("#priceHigh").textContent = fmt(q.high);
+  const [rLo, rHi] = recRange(S.qty), pf = $("#priceFit");
+  pf.hidden = utilOf(S.qty, S.area) <= 100;
+  pf.textContent = `📐 הגודל המומלץ לציוד הזה: ${rLo}–${rHi} מ״ר (יש לכם ${S.area} מ״ר)`;
+  let rows = q.lines.map(l => `<div><span>${l.qty} × ${esc(l.name)}</span><span><bdi dir="ltr">${fmt(l.sum)}</bdi></span></div>`).join("");
+  if (q.floorSum) rows += `<div><span>ריצוף גומי, ${S.area} מ״ר</span><span><bdi dir="ltr">${fmt(q.floorSum)}</bdi></span></div>`;
+  rows += `<div><span>הובלה, הרכבה והתקנה</span><span><bdi dir="ltr">${fmt(q.install)}</bdi></span></div>`;
+  rows += `<div class="tot"><span>סה״כ לפני הנחה</span><span><bdi dir="ltr">${fmt(q.list)}</bdi></span></div>`;
+  $("#rows").innerHTML = rows;
+  countUp($("#priceBig"), q.list, 1100);
+  $("#cmpList").textContent = fmt(q.list); $("#cmpBest").textContent = fmt(q.best);
+  mark("quote"); snapshotInto(S.lead); persistNow();
+  refreshDock();
+  setTimeout(openOffer, REDUCED ? 300 : 1500);
+}
+function refreshOfferNo(){
+  if (!S.lead) return;
+  $("#offerNo").textContent = S.lead.id; $("#offerNo2").textContent = S.lead.id;
+  const msg = `היי טוטאל פיטנס, קיבלתי הצעה מספר ${S.lead.id} מהמחשבון שלכם, הבנתי שמגיעה לי הנחה נוספת`;
+  const href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+  $("#waBtn").href = href; $("#waAgain").href = href; $("#msgText").textContent = msg;
+}
+function countUp(el, to, ms){
+  if (REDUCED){ el.textContent = fmt(to); return; }
+  const t0 = performance.now();
+  const tick = t => { const p = Math.min(1, (t - t0) / ms); el.textContent = fmt(to * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}
+$("#giftBtn").addEventListener("click", () => openOffer());
+
+/* ---------- offer popup with scratch card ---------- */
+let scratched = false;
+function openOffer(){
+  if (S.step !== 5 || !S.revealed) return;
+  $("#offerMain").hidden = false; $("#offerAfter").hidden = true;
+  $("#offer").hidden = false; document.body.style.overflow = "hidden";
+  mark("offer"); persistSoon();
+  if (scratched) showRevealed(false); else requestAnimationFrame(setupScratch);
+}
+function closeOffer(){ $("#offer").hidden = true; document.body.style.overflow = ""; }
+$("#offerX").addEventListener("click", closeOffer);
+$("#laterBtn").addEventListener("click", closeOffer);
+$("#offer").addEventListener("click", e => { if (e.target.id === "offer") closeOffer(); });
+addEventListener("keydown", e => { if (e.key === "Escape" && !$("#offer").hidden) closeOffer(); });
+
+function setupScratch(){
+  const cv = $("#scratchCv"), box = $("#scratch").getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1);
+  cv.classList.remove("gone"); $("#hand").hidden = false;
+  cv.width = box.width * dpr; cv.height = box.height * dpr;
+  const ctx = cv.getContext("2d"); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const g = ctx.createLinearGradient(0, 0, box.width, box.height);
+  g.addColorStop(0, "#b9bdc3"); g.addColorStop(.5, "#e6e7ea"); g.addColorStop(1, "#a9adb3");
+  ctx.fillStyle = g; ctx.fillRect(0, 0, box.width, box.height);
+  ctx.fillStyle = "rgba(255,255,255,.35)";
+  for (let i = -box.height; i < box.width; i += 14){ ctx.fillRect(i, 0, 5, box.height); }
+  ctx.save(); ctx.translate(box.width/2, box.height/2 - 8); ctx.scale(.09, .09); ctx.translate(-464, -366); ctx.globalAlpha = .55; paintLogo(ctx, LOGO.mono); ctx.restore();
+  ctx.fillStyle = "#030505"; ctx.font = "700 20px 'Google Sans', Arial, sans-serif"; ctx.textAlign = "center"; ctx.direction = "rtl";
+  ctx.fillText("גרדו כאן", box.width/2, box.height - 22);
+  ctx.globalCompositeOperation = "destination-out"; ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.lineWidth = 46;
+  let last = null, moves = 0;
+  const pt = e => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+  const scr = p => { ctx.beginPath(); if (last){ ctx.moveTo(last[0], last[1]); ctx.lineTo(p[0], p[1]); ctx.stroke(); } ctx.beginPath(); ctx.arc(p[0], p[1], 23, 0, 7); ctx.fill(); last = p; if (++moves % 6 === 0) check(); };
+  const check = () => {
+    const d = ctx.getImageData(0, 0, cv.width, cv.height).data; let clear = 0, tot = 0;
+    for (let i = 3; i < d.length; i += 4 * 40){ tot++; if (d[i] < 40) clear++; }
+    if (clear / tot > .42) showRevealed(true);
+  };
+  cv.onpointerdown = e => { cv.setPointerCapture(e.pointerId); $("#hand").hidden = true; last = null; scr(pt(e)); buzz(); };
+  cv.onpointermove = e => { if (e.buttons || e.pointerType === "touch") scr(pt(e)); };
+  cv.onpointerup = () => { last = null; check(); };
+}
+function showRevealed(celebrate){
+  if (!scratched || celebrate){ scratched = true; }
+  $("#scratchCv").classList.add("gone"); $("#hand").hidden = true; $("#revealBtn").hidden = true; $("#scratchHelp").hidden = true;
+  $("#offerTitle").innerHTML = `קבל מאיתנו הנחה משמעותית נוספת <span>עד 30%</span> על כל הציוד`;
+  $("#revealed").hidden = false;
+  const wa = $("#waBtn"); wa.classList.remove("popin"); void wa.offsetWidth; wa.classList.add("popin");
+  if (celebrate){ confetti(); buzz(); }
+}
+$("#revealBtn").addEventListener("click", () => showRevealed(true));
+$("#waBtn").addEventListener("click", () => {
+  mark("whatsapp"); snapshotInto(S.lead); persistNow();
+  setTimeout(() => { $("#offerMain").hidden = true; $("#offerAfter").hidden = false; }, 400);
+});
+$("#waAgain").addEventListener("click", () => { mark("whatsapp"); persistNow(); });
+$("#copyMsg").addEventListener("click", () => {
+  const el = $("#msgText");
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("סמנו והעתיקו את ההודעה"); };
+  if (navigator.clipboard) navigator.clipboard.writeText(el.textContent).then(() => toast("ההודעה הועתקה"), fallback); else fallback();
+});
+function confetti(){
+  if (REDUCED) return;
+  const cv = $("#confetti"); cv.hidden = false;
+  const dpr = Math.min(2, devicePixelRatio || 1), W = innerWidth, H = innerHeight;
+  cv.width = W * dpr; cv.height = H * dpr;
+  const ctx = cv.getContext("2d"); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const cols = ["#eb3f25","#030505","#ffffff","#1a9e4b","#f6a08f"];
+  const ps = Array.from({length:140}, () => ({x:W/2 + (Math.random()-.5)*80, y:H*.55, vx:(Math.random()-.5)*15, vy:-Math.random()*17-6, r:Math.random()*3, vr:(Math.random()-.5)*.4, w:6+Math.random()*6, h:3+Math.random()*5, c:cols[(Math.random()*cols.length)|0]}));
+  const t0 = performance.now();
+  const tick = t => {
+    const el = t - t0; ctx.clearRect(0,0,W,H);
+    for (const p of ps){ p.vy += .45; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.r); ctx.globalAlpha = Math.max(0, 1 - el/2200); ctx.fillStyle = p.c; ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h); ctx.restore(); }
+    if (el < 2200) requestAnimationFrame(tick); else { ctx.clearRect(0,0,W,H); cv.hidden = true; }
+  };
+  requestAnimationFrame(tick);
+}
+let toastT = 0;
+function toast(msg){ const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => t.hidden = true, 2200); }
+
+/* ===================== ADMIN ===================== */
+const A = { leads:[], crm:{}, sel:null, sub:null, filter:"", shown:"" };
+function route(){
+  const admin = location.hash === "#admin";
+  $("#customer").hidden = admin; $("#admin").hidden = !admin;
+  if (admin){ heroRun++; openAdmin(); } else if (S.step === 0) heroLoop();
+}
+addEventListener("hashchange", route);
+
+const KEY_LS = "tf-admin-key";
+const adminKey = () => { try { return localStorage.getItem(KEY_LS) || ""; } catch { return ""; } };
+async function sheetLoad(){
+  const r = await Store.sheet({action:"list", key: adminKey()});
+  if (!r.ok) throw new Error(r.error || "error");
+  A.leads = (r.leads || []).sort((a,b) => (b.updatedAt||0) - (a.updatedAt||0)); A.crm = r.crm || {};
+  renderAdmin();
+}
+function showLogin(msg){
+  $("#admLogin").hidden = false; $("#admBody").hidden = true; $("#admErr").textContent = msg || "";
+  setTimeout(() => $("#admKey").focus(), 100);
+}
+// Password gate. With Google Sheets connected the server checks the password (ADMIN_KEY);
+// otherwise the page compares a PBKDF2 hash, so the password itself is never in the source.
+const ADMIN_SALT = "tf-admin-v1-7Qm2";
+const ADMIN_HASH = "22b55d8b7e41bc7792d0ff90bd7826f9845724ddaa79f8fb32a2da1a5d0a6d2a";
+async function passOk(pw){
+  try {
+    const enc = new TextEncoder();
+    const km = await crypto.subtle.importKey("raw", enc.encode(pw), "PBKDF2", false, ["deriveBits"]);
+    const bits = await crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt: enc.encode(ADMIN_SALT), iterations: 150000 }, km, 256);
+    return [...new Uint8Array(bits)].map(b => b.toString(16).padStart(2, "0")).join("") === ADMIN_HASH;
+  } catch { return false; }
+}
+function unlock(){
+  $("#admLogin").hidden = true; $("#admBody").hidden = false;
+  $("#admErr").textContent = ""; $("#admKey").value = "";
+  $("#admLogout").hidden = false;
+}
+$("#admLoginForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const pw = $("#admKey").value.trim();
+  $("#admErr").textContent = "בודק…";
+  await Store.ready;
+  if (Store.mode === "sheet"){
+    try { localStorage.setItem(KEY_LS, pw); } catch {}
+    try { await sheetLoad(); unlock(); startSheetPoll(); }
+    catch (err){ try { localStorage.removeItem(KEY_LS); } catch {} $("#admErr").textContent = /auth/i.test(err.message) ? "סיסמה שגויה. נסו שוב." : "אין חיבור לגוגל שיטס. בדקו את הכתובת בהגדרות."; }
+    return;
+  }
+  if (await passOk(pw)){ try { localStorage.setItem(KEY_LS, pw); } catch {} unlock(); startLiveLeads(); }
+  else $("#admErr").textContent = "סיסמה שגויה. נסו שוב.";
+});
+$("#admLogout").addEventListener("click", () => {
+  try { localStorage.removeItem(KEY_LS); } catch {}
+  clearInterval(A.poll);
+  if (typeof A.sub === "function") A.sub();
+  if (typeof A.crmSub === "function") A.crmSub();
+  A.sub = null; A.crmSub = null; A.leads = []; A.crm = {}; A.sel = null; A.shown = "";
+  $("#admLogout").hidden = true;
+  showLogin();
+});
+function startSheetPoll(){ clearInterval(A.poll); A.sub = 1; A.poll = setInterval(() => sheetLoad().catch(() => {}), 20000); }
+function startLiveLeads(){
+  if (A.sub) return;
+  if (Store.mode === "db"){
+    A.sub = Store.db.collection("leads").orderBy("updatedAt","desc").limit(300).onSnapshot(
+      snap => { A.leads = snap.docs.map(d => ({...d.data(), id:d.id})); renderAdmin(); },
+      () => { const badge = $("#modeBadge"); badge.textContent = "אין גישה ללידים בתצוגה הזו"; badge.className = "mode"; });
+    A.crmSub = Store.db.collection("crm").limit(1000).onSnapshot(snap => { A.crm = Object.fromEntries(snap.docs.map(d => [d.id, d.data()])); renderAdmin(); }, () => {});
+  } else {
+    const load = () => { A.leads = Object.values(lsGet(LS_KEY)).sort((a,b) => (b.updatedAt||0) - (a.updatedAt||0)); A.crm = lsGet(LS_KEY + "-crm"); renderAdmin(); };
+    load(); addEventListener("storage", load); A.sub = () => removeEventListener("storage", load);
+  }
+}
+
+async function openAdmin(){
+  renderAdmin();
+  await Store.ready;
+  const badge = $("#modeBadge");
+  if (Store.mode === "db"){ badge.textContent = "מחובר · מתעדכן בזמן אמת"; badge.className = "mode db"; }
+  else if (Store.mode === "sheet"){ badge.textContent = "מחובר לגוגל שיטס · מתעדכן כל 20 שניות"; badge.className = "mode db"; }
+  else { badge.textContent = "מצב הדגמה · נתונים מהדפדפן הזה בלבד"; badge.className = "mode"; }
+  if (A.sub) return;
+  const pw = adminKey();
+  if (Store.mode === "sheet"){
+    if (!pw) return showLogin();
+    try { await sheetLoad(); unlock(); startSheetPoll(); } catch { showLogin("נא להזין שוב את הסיסמה."); }
+    return;
+  }
+  if (!pw || !(await passOk(pw))) return showLogin();
+  unlock(); startLiveLeads();
+}
+function timeAgo(ts){
+  if (!ts) return "";
+  const s = (Date.now() - ts) / 1000, rtf = new Intl.RelativeTimeFormat("he", {numeric:"auto"});
+  if (s < 60) return "עכשיו";
+  if (s < 3600) return rtf.format(-Math.round(s/60), "minute");
+  if (s < 86400) return rtf.format(-Math.round(s/3600), "hour");
+  return rtf.format(-Math.round(s/86400), "day");
+}
+const fmtTime = ts => ts ? new Date(ts).toLocaleString("he-IL", {day:"2-digit", month:"2-digit", hour:"2-digit", minute:"2-digit"}) : "";
+function filtered(){
+  const f = A.filter.trim(); if (!f) return A.leads;
+  const digits = f.replace(/\D/g, "");
+  return A.leads.filter(l => (digits && (String(l.id).includes(digits) || String(l.phone||"").includes(digits))) || (l.name||"").includes(f));
+}
+function renderAdmin(){
+  const all = A.leads, quoted = all.filter(l => STAGES.indexOf(l.status) >= 1), wa = all.filter(l => l.status === "whatsapp");
+  const avg = quoted.length ? quoted.reduce((a,l) => a + (l.quote?.list || 0), 0) / quoted.length : 0;
+  $("#stats").innerHTML = [["לידים", all.length], ["ראו מחיר", quoted.length], ["לחצו קבל", wa.length], ["ממוצע הצעה", avg ? fmt(avg) : "—"]]
+    .map(([k,v]) => `<div class="stat"><small>${k}</small><b class="num"><bdi dir="ltr">${v}</bdi></b></div>`).join("");
+  const rows = filtered();
+  $("#leads").innerHTML = rows.length ? rows.map(l => `
+    <button class="lead ${A.sel === l.id ? "sel" : ""}" data-id="${esc(l.id)}">
+      <span class="id">${esc(l.id)}</span><span class="nm">${esc(l.name || "ללא שם")}</span><span class="pill ${esc(l.status)}">${STAGE_LABEL[l.status] || ""}</span>
+      <span class="sub">${esc(l.spaceLabel || "")} · ${l.area || "?"} מ״ר · <bdi dir="ltr">${fmt(l.quote?.list || 0)}</bdi> · ${timeAgo(l.updatedAt)}</span>
+    </button>`).join("")
+    : `<div class="empty">${all.length ? "לא נמצאה הצעה תואמת." : "עוד אין לידים. ליד נשמר כאן ברגע שלקוח כותב שם וטלפון במחשבון."}</div>`;
+  if (A.sel){
+    const l = all.find(x => x.id === A.sel);
+    const key = l ? l.id + ":" + l.updatedAt + ":" + (A.crm[l.id]?.at || 0) : "";
+    if (l && key !== A.shown && document.activeElement?.id !== "crmNote"){ A.shown = key; renderDetail(l); }
+  }
+}
+$("#leads").addEventListener("click", e => {
+  const b = e.target.closest("[data-id]"); if (!b) return;
+  A.sel = b.dataset.id; renderAdmin();
+  if (innerWidth < 960) $("#detail").scrollIntoView({behavior: REDUCED ? "auto" : "smooth", block:"start"});
+});
+$("#q").addEventListener("input", e => {
+  A.filter = e.target.value;
+  const exact = A.leads.find(l => String(l.id) === A.filter.trim()); if (exact) A.sel = exact.id;
+  renderAdmin();
+});
+$("#q").addEventListener("keydown", e => { if (e.key === "Enter"){ const r = filtered(); if (r[0]){ A.sel = r[0].id; renderAdmin(); } } });
+
+function recs(L){
+  const r = [], q = L.qty || {}, has = k => (q[k] || 0) > 0, total = L.quote?.list || 0, u = L.utilization || 0;
+  if (L.status === "whatsapp") r.push({tone:"hot", t:"ליד חם: לחץ \"קבל\" ועבר לוואטסאפ", s:"לחזור אליו מהר עם הדמיה ראשונית וההנחה על ההצעה."});
+  else if (L.status === "details") r.push({tone:"hot", t:"השאיר פרטים ולא ראה מחיר", s:"להתקשר היום. לשאול מה עצר אותו ולהציע ייעוץ ותכנון חינם."});
+  else r.push({tone:"hot", t:"ראה מחיר ולא לחץ על ההנחה", s:`ליזום שיחה ולהציע את ההנחה של עד 30% והדמיה חינם על הצעה ${L.id}.`});
+  const need = Object.entries(q).reduce((a,[k,v]) => a + (CAT[k] ? CAT[k].need * v : 0), 0);
+  const [rLo, rHi] = recRange(q);
+  if (u > 100) r.push({tone:"up", t:`הלקוח בחר יותר ציוד ממה שנכנס (${u}%)`, s:`הגודל המומלץ לציוד שנבחר: ${rLo}–${rHi} מ״ר, ויש לו ${L.area} מ״ר. להציע מכשירים משולבים או לתכנן פריסה צפופה.`});
+  else if (u < 60 && L.area){
+    const pick = (SPACES[L.space]?.plan || []).map(k => CAT[k]).find(c => !has(c.key)) || (SPACES[L.space] ? CAT[SPACES[L.space].plan[0]] : CAT.bench);
+    const n = Math.max(1, Math.floor((L.area - need) / pick.need));
+    r.push({tone:"up", t:`נשאר מקום (${u}% תפוסה)`, s:`יש מקום לעוד כ-${n} × ${pick.name}. הזדמנות להגדיל את ההזמנה.`});
+  }
+  if (!L.floor && ["rack","dumbbells","plate","gym360","station"].some(has)) r.push({tone:"up", t:"משקולות בלי ריצוף גומי", s:`להציע אריחי בלימה ל-${L.area} מ״ר (כ-${fmt(L.area * CONFIG.floorPerSqm)}).`});
+  if (L.space === "gym" && !["treadmill","elliptical","stairs","spin"].some(has)) r.push({tone:"up", t:"מכון בלי מכשירים אירוביים", s:"להציע הליכונים ואליפטיקל."});
+  if (L.space === "pilates") r.push({tone:"up", t:"סטודיו פילאטיס", s:"להציג גם רפורמר עם טאוור (₪8,990 / ₪12,990) וכיסא קומבו (₪3,890)."});
+  if ((has("hs") || has("plate")) && !has("anyfit") && total > 120000) r.push({tone:"up", t:"תקציב גבוה", s:"להציג את AnyFit, המותג הגרמני שבבלעדיות טוטאל פיטנס, כשדרוג."});
+  const tier = total < 40000 ? "עד 15%" : total < 100000 ? "עד 22%" : "עד 30%";
+  r.push({tone:"tip", t:`טווח הנחה מוצע לשיקולכם: ${tier}`, s:"הלקוח ראה הבטחה להנחה של \"עד 30%\" והדמיה חינם."});
+  r.push({tone:"tip", t:"טרייד-אין", s:"לשאול אם יש ציוד ישן להחלפה."});
+  return r;
+}
+function renderDetail(L){
+  const q = L.quote || {}, crm = A.crm[L.id] || {};
+  const wa = L.phone ? `https://wa.me/972${String(L.phone).replace(/^0/,"")}?text=${encodeURIComponent(`היי ${L.name || ""}, כאן טוטאל פיטנס לגבי הצעה מספר ${L.id} מהמחשבון. נשמח לתאם לך את ההנחה וההדמיה.`)}` : "";
+  const items = Object.entries(L.qty || {}).filter(([k]) => CAT[k]).map(([k,v]) => `<div><span>${v} × ${esc(CAT[k].name)}</span><span><bdi dir="ltr">${fmt((L.prices?.[k] ?? CAT[k].price) * v)}</bdi></span></div>`).join("");
+  $("#detail").innerHTML = `
+    <div class="card">
+      <div class="dhead"><h2>הצעה ${esc(L.id)}</h2><span class="pill ${esc(L.status)}">${STAGE_LABEL[L.status] || ""}</span></div>
+      <dl class="kv">
+        <dt>שם</dt><dd>${esc(L.name || "—")}</dd>
+        <dt>טלפון</dt><dd><bdi dir="ltr" style="user-select:all">${esc(prettyPhone(L.phone || ""))}</bdi></dd>
+        <dt>נוצר</dt><dd>${fmtTime(L.createdAt)} · ${L.device === "mobile" ? "מהנייד" : "מהמחשב"}</dd>
+      </dl>
+      <div class="row">${wa ? `<a class="btn wa" style="min-height:48px;font-size:16px" href="${wa}" target="_blank" rel="noopener">וואטסאפ ללקוח</a>` : ""}<button class="btn line" style="min-height:48px;font-size:16px" type="button" data-copy="${esc(L.phone || "")}">העתקת טלפון</button></div>
+    </div>
+    <div class="card"><h3>מה להמליץ ללקוח</h3><div class="recs">${recs(L).map(x => `<div class="rec ${x.tone}"><b>${esc(x.t)}</b><span>${esc(x.s)}</span></div>`).join("")}</div></div>
+    <div class="card"><h3>המקום</h3>
+      <div class="viz-box adm-viz"><canvas id="admViz"></canvas></div>
+      <dl class="kv"><dt>סוג</dt><dd>${esc(L.spaceLabel || "")}</dd><dt>גודל</dt><dd>${L.area} מ״ר · תפוסה ${L.utilization}%</dd><dt>ריצוף</dt><dd>${L.floor ? "ריצוף גומי לכל החדר" : "ללא"}</dd></dl>
+    </div>
+    <div class="card"><h3>הציוד והמחיר</h3><div class="rows">${items}
+      ${q.floor ? `<div><span>ריצוף גומי, ${L.area} מ״ר</span><span><bdi dir="ltr">${fmt(q.floor)}</bdi></span></div>` : ""}
+      <div><span>הובלה והתקנה</span><span><bdi dir="ltr">${fmt(q.install || 0)}</bdi></span></div>
+      <div class="tot"><span>מחירון לפני הנחה</span><span><bdi dir="ltr">${fmt(q.list || 0)}</bdi></span></div>
+      <div><span>אחרי הנחה של 30%</span><span style="color:var(--wa);font-weight:700"><bdi dir="ltr">${fmt(q.best || 0)}</bdi></span></div></div>
+    </div>
+    <div class="card"><h3>מה הלקוח עשה</h3><div class="tl">${(L.events || []).map(e => `<div><span>${STAGE_LABEL[e.type] || e.type}</span><time>${fmtTime(e.at)}</time></div>`).join("")}</div></div>
+    <div class="card"><h3>טיפול צוות</h3>
+      <div class="stage" id="crmStage">${CRM_STAGES.map(s => `<button type="button" data-stage="${s}" aria-pressed="${(crm.stage || "חדש") === s}">${s}</button>`).join("")}</div>
+      <textarea id="crmNote" placeholder="הערות לשיחה, דגמים מבוקשים, מתי לחזור…">${esc(crm.note || "")}</textarea>
+      <button class="btn" type="button" id="crmSave" style="justify-self:start;min-height:48px;font-size:16px">שמירה</button>
+    </div>`;
+  new Viz($("#admViz")).set(L.area || 20, L.qty || {}, !!L.floor, true);
+}
+$("#detail").addEventListener("click", async e => {
+  const st = e.target.closest("[data-stage]");
+  if (st){ $$("#crmStage button").forEach(b => b.setAttribute("aria-pressed", b === st)); return; }
+  const cp = e.target.closest("[data-copy]");
+  if (cp){ navigator.clipboard?.writeText(cp.dataset.copy).then(() => toast("הטלפון הועתק"), () => toast("סמנו והעתיקו את המספר")); return; }
+  if (e.target.id === "crmSave"){
+    const stage = $("#crmStage [aria-pressed='true']")?.dataset.stage || "חדש";
+    const crm = {stage, note: $("#crmNote").value, at: Date.now()};
+    try { await Store.updateCrm(A.sel, crm); A.crm[A.sel] = crm; A.shown = ""; toast("נשמר"); }
+    catch { toast("השמירה לא הצליחה. אין הרשאת עריכה בתצוגה הזו."); }
+  }
+});
+
+/* ===================== PRICE EDITOR (back panel) ===================== */
+function showTab(name){
+  $("#tabBtnLeads").setAttribute("aria-selected", String(name === "leads"));
+  $("#tabBtnPrices").setAttribute("aria-selected", String(name === "prices"));
+  $("#tabLeads").hidden = name !== "leads"; $("#tabPrices").hidden = name !== "prices";
+  if (name === "prices") pricesReady.then(renderPrices);
+}
+$("#tabBtnLeads").addEventListener("click", () => showTab("leads"));
+$("#tabBtnPrices").addEventListener("click", () => showTab("prices"));
+function priceDraft(){
+  const p = { items: {}, floorPerSqm: CONFIG.floorPerSqm, installRate: CONFIG.installRate };
+  $$("[data-pkey]").forEach(i => { const v = Math.round(Number(i.value)); p.items[i.dataset.pkey] = Number.isFinite(v) && v >= 0 ? v : 0; });
+  const f = Number($("#pFloor")?.value); if (Number.isFinite(f) && f >= 0) p.floorPerSqm = Math.round(f);
+  const r = Number($("#pInstall")?.value); if (Number.isFinite(r) && r >= 0 && r <= 50) p.installRate = +(r / 100).toFixed(4);
+  return p;
+}
+function exampleTotal(p, space, area){
+  const q = autoFillFor(space, area); let equip = 0;
+  for (const c of CATALOG) equip += (q[c.key] || 0) * (p.items[c.key] ?? c.price);
+  const floor = space === "building" ? 0 : Math.round(area * p.floorPerSqm);
+  const install = Math.round(equip * p.installRate / 100) * 100;
+  return { total: equip + floor + install, count: countOf(q) };
+}
+function renderExamples(){
+  const p = priceDraft();
+  $("#priceExamples").innerHTML = [["gym", 50, "מכון כושר · 50 מ״ר"], ["pilates", 50, "סטודיו פילאטיס · 50 מ״ר"], ["home", 20, "חדר כושר ביתי · 20 מ״ר"], ["building", 50, "בניין / משרד · 50 מ״ר"]]
+    .map(([s, a, l]) => { const e = exampleTotal(p, s, a); return `<div class="example"><small>${l} · ${e.count} פריטים</small><b class="num"><bdi dir="ltr">${fmt(e.total)}</bdi></b></div>`; }).join("");
+}
+function renderPrices(){
+  const note = $("#priceNote");
+  if (Store.mode === "local"){ note.className = "price-note"; note.textContent = "מצב הדגמה: המחירים יישמרו רק בדפדפן הזה. כדי שכל הלקוחות יקבלו את המחירים החדשים צריך לחבר את גוגל שיטס (ההסבר ב-README)."; }
+  else { note.className = "price-note ok"; note.textContent = Store.mode === "sheet" ? "המחירים נשמרים בגוגל שיטס, וכל הצעה חדשה של לקוח מחושבת לפיהם." : "המחירים נשמרים במסד הנתונים, וכל הצעה חדשה של לקוח מחושבת לפיהם."; }
+  const row = (o) => `<div class="prow ${Number(o.val) !== Number(o.def) ? "changed" : ""}"><span><b>${esc(o.name)}</b><small>${esc(o.desc)} · ברירת מחדל: ${o.pct ? o.def + "%" : fmt(o.def)}</small></span><label class="pin"><span>${o.pct ? "%" : "₪"}</span><input ${o.id ? `id="${o.id}"` : `data-pkey="${o.key}"`} type="number" inputmode="decimal" min="0" step="${o.pct ? "0.5" : "10"}" value="${o.val}" data-def="${o.def}" aria-label="${esc(o.name)}"></label></div>`;
+  $("#plist").innerHTML = CATALOG.map(c => row({ key: c.key, name: c.name, desc: c.desc, val: c.price, def: DEFAULT_PRICES.items[c.key] })).join("")
+    + row({ id: "pFloor", name: "ריצוף גומי (למ״ר)", desc: "אריח בלימה 1×1 מ׳", val: CONFIG.floorPerSqm, def: DEFAULT_PRICES.floorPerSqm })
+    + row({ id: "pInstall", name: "הובלה, הרכבה והתקנה", desc: "אחוז מסכום הציוד", val: +(CONFIG.installRate * 100).toFixed(1), def: +(DEFAULT_PRICES.installRate * 100).toFixed(1), pct: true });
+  $("#pMeta").textContent = PRICES.updatedAt ? `עודכן לאחרונה: ${fmtTime(PRICES.updatedAt)}` : "מוצגים מחירי ברירת המחדל.";
+  renderExamples();
+}
+$("#plist").addEventListener("input", e => {
+  const i = e.target.closest("input"); if (!i) return;
+  i.closest(".prow").classList.toggle("changed", Number(i.value) !== Number(i.dataset.def));
+  renderExamples();
+});
+$("#pSave").addEventListener("click", async () => {
+  const b = $("#pSave"); b.disabled = true;
+  try { await savePrices(priceDraft()); renderPrices(); toast("המחירים נשמרו"); }
+  catch { toast("השמירה לא הצליחה. נסו שוב."); }
+  finally { b.disabled = false; }
+});
+$("#pReset").addEventListener("click", () => {
+  CATALOG.forEach(c => { const i = document.querySelector(`[data-pkey="${c.key}"]`); if (i) i.value = DEFAULT_PRICES.items[c.key]; });
+  $("#pFloor").value = DEFAULT_PRICES.floorPerSqm; $("#pInstall").value = +(DEFAULT_PRICES.installRate * 100).toFixed(1);
+  $$("#plist .prow").forEach(r => r.classList.remove("changed"));
+  renderExamples(); toast("הוחזרו מחירי ברירת המחדל. לחצו על שמירה כדי לאשר.");
+});
+
+/* ===================== BOOT ===================== */
+update();
+route();
+document.fonts?.ready?.then(() => { viz.kick(); heroViz.kick(); });
+Store.ready.then(async () => {
+  let staff = false;   // on a public site the back panel is reached directly at #admin
+  try { if (Store.user) staff = (await Store.user.canEdit()) || (await Store.user.isOwner()); } catch {}
+  $("#staffLink").hidden = !staff;
+});
+})();
+</script>
+</body>
+</html>
